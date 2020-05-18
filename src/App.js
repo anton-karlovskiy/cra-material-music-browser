@@ -1,11 +1,9 @@
 
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Header from 'components/Header';
-import AnimatedAlbumGrid from 'components/UI/AnimatedAlbumGrid';
+import AnimatedAlbumGridSet from 'components/AnimatedAlbumGridSet';
 import './App.css';
-import { splitIntoSubArray } from 'utils/helpers';
-import { COUNT_OF_TILES_ON_VIEWPORT } from 'utils/constants';
 
 // TODO: dig into more
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com';
@@ -30,17 +28,13 @@ const App = () => {
     })();
   }, []);
 
-  const albumTilesSet = useMemo(() => splitIntoSubArray(albumTiles, COUNT_OF_TILES_ON_VIEWPORT), [albumTiles]);
-
   return (
     <>
       <Header />
       <main>
-        {albumTilesSet.map((albumTiles, index) => (
-          <AnimatedAlbumGrid
-            key={index}
-            albumTiles={albumTiles} />
-        ))}
+        {albumTiles.length > 0 && (
+          <AnimatedAlbumGridSet albumTiles={albumTiles} />
+        )}
       </main>
     </>
   );
