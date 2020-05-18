@@ -2,6 +2,7 @@
 import React from 'react';
 
 import AlbumTile from './AlbumTile';
+import FullSizePageWithAlbumCard from './FullSizePageWithAlbumCard';
 import './animated-album-grid.css';
 import { COUNT_OF_TILES_ON_VIEWPORT } from 'utils/constants';
 
@@ -115,17 +116,40 @@ const staticAlbumTiles = [
   }
 ];
 
-const AnimatedAlbumGrid = ({ albumTiles }) => (
-  <div className='neon-animated-pages'>
-    {albumTiles.map((albumTile, index) => (
-      <AlbumTile
-        key={albumTile.id}
-        color={staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].color}
-        artworkUrl={albumTile.artworkUrl}
-        albumName={albumTile.albumName}
-        artistName={albumTile.artistName} />
-    ))}
-  </div>
-);
+const AnimatedAlbumGrid = ({
+  albumTiles,
+  openedAlbum,
+  openAlbum,
+  closeAlbum
+}) => {
+  
+
+  return (
+    <div className='neon-animated-pages'>
+      {albumTiles.map((albumTile, index) => {
+        const albumColor = staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].color;
+
+        return (
+          <AlbumTile
+            key={albumTile.id}
+            onClick={openAlbum({
+              id: albumTile.id,
+              color: albumColor,
+              artworkUrl: albumTile.artworkUrl,
+              albumName: albumTile.albumName,
+              artistName: albumTile.artistName
+            })}
+            color={albumColor}
+            artworkUrl={albumTile.artworkUrl}
+            albumName={albumTile.albumName}
+            artistName={albumTile.artistName} />
+        );
+      })}
+      <FullSizePageWithAlbumCard
+        closeAlbum={closeAlbum}
+        openedAlbum={openedAlbum} />
+    </div>
+  );
+};
 
 export default AnimatedAlbumGrid;

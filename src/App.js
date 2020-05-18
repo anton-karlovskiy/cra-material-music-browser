@@ -8,6 +8,14 @@ import './App.css';
 // TODO: dig into more
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com';
 
+const DEFAULT_ALBUM = {
+  id: '',
+  color: '',
+  artworkUrl: '',
+  albumName: '',
+  artistName: ''
+};
+
 const App = () => {
   const [albumTiles, setAlbumTiles] = useState([]);
   useEffect(() => {
@@ -27,13 +35,43 @@ const App = () => {
       }
     })();
   }, []);
+  const [openedAlbum, setOpenedAlbum] = useState(DEFAULT_ALBUM);
+
+  const openAlbumHandler = ({
+    id,
+    color,
+    artworkUrl,
+    albumName,
+    artistName
+  }) => event => {
+    if (id !== openedAlbum.id) {
+      // ray test touch <
+      console.log('ray : ***** [openAlbumHandler] id, event => ', id, event);
+      // ray test touch >
+      setOpenedAlbum({
+        id,
+        color,
+        artworkUrl,
+        albumName,
+        artistName
+      });
+    }
+  };
+
+  const closeAlbumHandler = () => {
+    setOpenedAlbum(DEFAULT_ALBUM);
+  };
 
   return (
     <>
       <Header />
       <main>
         {albumTiles.length > 0 && (
-          <AnimatedAlbumGridSet albumTiles={albumTiles} />
+          <AnimatedAlbumGridSet
+            openedAlbum={openedAlbum}
+            openAlbum={openAlbumHandler}
+            closeAlbum={closeAlbumHandler}
+            albumTiles={albumTiles} />
         )}
       </main>
     </>
