@@ -1,13 +1,127 @@
-body {
+
+:root {
+  --palette-bg-default: #303030;
+  --palette-bg-paper: #424242;
+  --palette-common-black: #000;
+  --palette-common-white: #fff;
+  --palette-text-primary: #fff;
+  --palette-text-secondary: rgba(255, 255, 255, 0.7);
+  --palette-grey-500: #212121;
+  --palette-grey-300: ##e0e0e0;
+  --palette-grey-500-dark: #171717;
+  --shadows-4: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+  --typography-font-family: 'Roboto', 'Helvetica','Arial', sans-serif;
+  --typography-body1-font-size: 16px;
+  --typography-body1-line-height: 1.5;
+  --typography-body1-letter-spacing: 0.00938em;
+  --typography-body2-font-size: 14px;
+  --typography-body2-line-height: 1.43;
+  --typography-body2-letter-spacing: 0.01071em;
+  --typography-button-font-size: 14px;
+  --typography-button-line-height: 1.75;
+  --typography-button-letter-spacing: 0.02857em;
+  --typography-font-weight-light: 300;
+  --typography-font-weight-regular: 400;
+  --typography-font-weight-medium: 500;
+  --typography-font-weight-bold: 700;
+  --palette-lime-500: #cddc39;
+  --palette-blue-500: #2196f3; /* First Byte */
+  --palette-amber-500: #ffc107; /* First Paint */
+  --palette-green-500: #4caf50; /* First Contentful Paint */
+  --palette-purple-500: #9c27b0; /* Largest Contentful Paint */
+  --palette-teal-500: #009688; /* First Input Delay */
+  --palette-orange-500: #ff9800; /* Speed Index */
+  --palette-pink-500: #e91e63; /* Time To Interactive */
+  --palette-cyan-500: #00bcd4; /* Cumulative Layout Shift */
+  --palette-indigo-500: #3f51b5; /* Total Blocking Time */
+}
+
+* {
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img, video {
+  border: 0;
+  max-width: 100%;
+}
+
+body,
+div,
+dl,
+dd,
+form,
+img,
+input,
+figure,
+menu {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+}
+
+li, li p {
+  margin: 8px 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--palette-text-primary);
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-body1-font-size);
+  line-height: var(--typography-body1-line-height);
+  letter-spacing: var(--typography-body1-letter-spacing);
+  margin: 0;
+  text-align: center;
+  background-color: var(--palette-bg-default);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+div#root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+a {
+  font-weight: var(--typography-font-weight-regular);
+  color: var(--palette-text-secondary);
+  text-decoration: none;
+}
+
+p {
+  margin: 0 auto 1em auto;
+  text-align: justify;
+}
+
+button {
+  color: var(--palette-text-primary);
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  border-radius: 2px;
+  height: 36px;
+  user-select: none;
+  transition: background-color .2s, box-shadow .2s;
+  
+  /* truncate string with ellipsis */
+  min-width: 64px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: var(--typography-button-font-size);
+  letter-spacing: var(--typography-button-letter-spacing);
+  font-weight: var(--typography-font-weight-bold);
+  text-transform: uppercase;
+}
+
+.font-weight-bold {
+  font-weight: var(--typography-font-weight-bold);
 }

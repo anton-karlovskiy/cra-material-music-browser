@@ -1,0 +1,9 @@
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* MEMO: should be matched with header height */
+  height: 48px;
+}
