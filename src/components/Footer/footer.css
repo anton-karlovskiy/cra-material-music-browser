@@ -5,5 +5,5 @@ footer {
   left: 0;
   right: 0;
   /* MEMO: should be matched with footer height */
-  height: 48px;
+  /* height: 48px; */
 }

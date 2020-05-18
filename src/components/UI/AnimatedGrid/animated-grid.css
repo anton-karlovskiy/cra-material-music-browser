@@ -1,0 +1,124 @@
+
+/* ray test touch < */
+.neon-animated-pages {
+  /* MEMO: should be matched with header height */
+  height: calc(100vh - 112px);
+  position: relative;
+}
+
+@media screen and (min-width: 640px) {
+  .neon-animated-pages {
+    /* MEMO: should be matched with header height */
+    height: calc(100vh - 72px);
+  }
+}
+
+/* MEMO: tile coloring */
+.blue-100 {
+  background-color: #c6dafc;
+}
+
+.blue-300 {
+  background-color: #31425B;
+  color: #FFFFFF;
+}
+
+.red-100 {
+  background-color: #E61D62;
+}
+
+.red-300 {
+  background-color: #A41251;
+  color: #FFFFFF;
+}
+
+.purple-100 {
+  background-color: #B11972;
+}
+
+.purple-300 {
+  background-color: #72185F;
+  color: #FFFFFF;
+}
+
+.vivid-100 {
+  background-color: #ae4b6b;
+}
+
+.vivid-300 {
+  background-color: #9A1E46;
+  color: #FFFFFF;
+}
+
+.mulberry-100 {
+  background-color: #734642;
+}
+
+.mulberry-300 {
+  background-color: #501813;
+  color: #FFFFFF;
+}
+
+.yellow-100 {
+  background-color: #fce8b2;
+}
+
+.yellow-300 {
+  background-color: #D9BF00;
+  color: #000000;
+}
+
+.sap-100 {
+  background-color: #6f955d;
+}
+
+.sap-300 {
+  background-color: #4C7B35;
+  color: #FFFFFF;
+}
+
+.jagular-100 {
+  background-color: #535359;
+}
+
+.jagular-300 {
+  background-color: #292830;
+  color: #FFFFFF;
+}
+
+.athens-100 {
+  background-color: #e5e5e5;
+}
+
+.athens-300 {
+  background-color: #DFDFDF;
+  color: #000000;
+}
+
+.egyptian-blue-100 {
+  background-color: #4367b6;
+}
+
+.egyptian-blue-300 {
+  background-color: #1441A4;
+  color: #FFFFFF;
+}
+
+.william-100 {
+  background-color: #638690;
+}
+
+.william-300 {
+  background-color: #3C6875;
+  color: #FFFFFF;
+}
+
+.charcoal-100 {
+  background-color: #5b6970;
+}
+
+.charcoal-300 {
+  background-color: #32444D;
+  color: #FFFFFF;
+}
+/* ray test touch > */
