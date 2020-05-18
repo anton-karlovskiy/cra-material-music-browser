@@ -3,6 +3,7 @@ import React from 'react';
 
 import AlbumTile from './AlbumTile';
 import './animated-album-grid.css';
+import { COUNT_OF_TILES_ON_VIEWPORT } from 'utils/constants';
 
 const staticAlbumTiles = [
   {
@@ -119,7 +120,7 @@ const AnimatedAlbumGrid = ({ albumTiles }) => (
     {albumTiles.map((albumTile, index) => (
       <AlbumTile
         key={albumTile.id}
-        color={staticAlbumTiles[index].color}
+        color={staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].color}
         artworkUrl={albumTile.artworkUrl}
         albumName={albumTile.albumName}
         artistName={albumTile.artistName} />

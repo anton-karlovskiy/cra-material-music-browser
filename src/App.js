@@ -1,9 +1,11 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 
 import Header from 'components/Header';
 import AnimatedAlbumGrid from 'components/UI/AnimatedAlbumGrid';
 import './App.css';
+import { splitIntoSubArray } from 'utils/helpers';
+import { COUNT_OF_TILES_ON_VIEWPORT } from 'utils/constants';
 
 // TODO: dig into more
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com';
@@ -13,7 +15,7 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch(`${PROXY_URL}/https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/12/explicit.json`);
+        const response = await fetch(`${PROXY_URL}/https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/24/explicit.json`);
         const json = await response.json();
         const albumTiles = json.feed.results.map(result => ({
           id: result.id,
@@ -28,11 +30,17 @@ const App = () => {
     })();
   }, []);
 
+  const albumTilesSet = useMemo(() => splitIntoSubArray(albumTiles, COUNT_OF_TILES_ON_VIEWPORT), [albumTiles]);
+
   return (
     <>
       <Header />
       <main>
-        <AnimatedAlbumGrid albumTiles={albumTiles} />
+        {albumTilesSet.map((albumTiles, index) => (
+          <AnimatedAlbumGrid
+            key={index}
+            albumTiles={albumTiles} />
+        ))}
       </main>
     </>
   );
