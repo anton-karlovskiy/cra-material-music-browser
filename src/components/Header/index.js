@@ -3,7 +3,7 @@ import React from 'react';
 
 import ProductLogoTitle from './ProductLogoTitle';
 import OptionList from './OptionList';
-import SearchIconButton from 'components/UI/SearchIconButton';
+import SearchIconButton from 'components/UI/IconButtons/SearchIconButton';
 import './header.css';
 
 const Header = () => {

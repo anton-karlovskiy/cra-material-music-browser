@@ -2,6 +2,10 @@
 // ray test touch <
 import React from 'react';
 
+import PlayListAddIconButton from 'components/UI/IconButtons/PlayListAddIconButton';
+import FastRewindIconButton from 'components/UI/IconButtons/FastRewindIconButton';
+import PlayIconButton from 'components/UI/IconButtons/PlayIconButton';
+import FastForwardIconButton from 'components/UI/IconButtons/FastForwardIconButton';
 import './full-size-page-with-album-card.css';
 
 const FullSizePageWithAlbumCard = ({
@@ -58,67 +62,12 @@ const FullSizePageWithAlbumCard = ({
               id='lowerbar'
               className={`${color}-100`}>
               <div id='fab'>
-                <svg
-                  width='20px'
-                  height='14px'
-                  viewBox='0 0 20 14'
-                  version='1.1'
-                  xmlns='http://www.w3.org/2000/svg'>
-                  <title>playlist_add</title>
-                  <desc>Created with Sketch.</desc>
-                  <g id='Icons' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
-                    <g id='Two-Tone' transform='translate(-238.000000, -956.000000)'>
-                      <g id='AV' transform='translate(100.000000, 852.000000)'>
-                        <g id='Two-Tone-/-AV-/-playlist_add' transform='translate(136.000000, 98.000000)'>
-                          <g>
-                            <polygon
-                              id='Path'
-                              points='0 0 24 0 24 24 0 24'>
-                            </polygon>
-                            <path
-                              d='M2,14 L10,14 L10,16 L2,16 L2,14 Z M2,10 L14,10 L14,12 L2,12 L2,10 Z M2,6 L14,6 L14,8 L2,8 L2,6 Z M18,10 L16,10 L16,14 L12,14 L12,16 L16,16 L16,20 L18,20 L18,16 L22,16 L22,14 L18,14 L18,10 Z'
-                              id='ðŸ”¹-Primary-Color'
-                              fill='#FFFFFF'>
-                            </path>
-                          </g>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
+                <PlayListAddIconButton />
               </div>
               <div className='music-control'>
-                <svg
-                  version='1.1'
-                  id='Capa_1'
-                  xmlns='http://www.w3.org/2000/svg'
-                  x='0px'
-                  y='0px'
-                  viewBox='0 0 55 55'>
-                  <polygon points='28,27.5 55,8.513 55,27.155 55,46.487' />
-                  <polygon points='0,27.5 27,8.5 27,27.5 27,46.5' />
-                </svg>
-                <svg
-                  viewBox='0 0 48 48'
-                  xmlns='http://www.w3.org/2000/svg'>
-                  <path
-                    d='M-838-2232H562v3600H-838z'
-                    fill='none' />
-                  <path d='M16 10v28l22-14z' />
-                  <path
-                    d='M0 0h48v48H0z'
-                    fill='none' />
-                </svg>
-                <svg
-                  version='1.1'
-                  id='Capa_1'
-                  xmlns='http://www.w3.org/2000/svg'
-                  x='0px'
-                  y='0px'
-                  viewBox='0 0 55 55'>
-                  <polygon points='27,27.5 0,46.487 0,27.845 0,8.513' />
-                  <polygon points='55,27.5 28,46.5 28,27.5 28,8.5' />
-                </svg>
+                <FastRewindIconButton />
+                <PlayIconButton />
+                <FastForwardIconButton />
               </div>
             </div>
           </div>
