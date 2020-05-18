@@ -48,7 +48,7 @@
   height: calc(100% / 3);
 }
 
-.footer {
+.tile-footer {
   box-sizing: border-box;
   padding: 16px;
   font-size: 16px;
@@ -57,7 +57,7 @@
   position: absolute;
 }
 
-.footer .album, .footer .artist {
+.tile-footer .album, .tile-footer .artist {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

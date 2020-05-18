@@ -6,18 +6,18 @@ import './tile.css';
 
 const Tile = ({
   color,
-  profile,
-  album,
-  artist,
+  artworkUrl,
+  albumName,
+  artistName,
   ...rest
 }) => (
   <div
     {...rest}
     className={`tile ${color}-300`}
-    style={{backgroundImage: `url("${profile}")`}}>
-    <div className={`footer ${color}-300`}>
-      <div className='album'>{album}</div>
-      <div className='artist'>{artist}</div>
+    style={{backgroundImage: `url("${artworkUrl}")`}}>
+    <div className={`tile-footer ${color}-300`}>
+      <div className='album'>{albumName}</div>
+      <div className='artist'>{artistName}</div>
     </div>
   </div>
 );
