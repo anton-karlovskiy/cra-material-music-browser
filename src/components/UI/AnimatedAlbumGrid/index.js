@@ -1,8 +1,7 @@
 
-// ray test touch <
 import React from 'react';
 
-import Tile from './Tile';
+import AlbumTile from './AlbumTile';
 import './animated-album-grid.css';
 
 const staticAlbumTiles = [
@@ -118,7 +117,7 @@ const staticAlbumTiles = [
 const AnimatedAlbumGrid = ({ albumTiles }) => (
   <div className='neon-animated-pages'>
     {albumTiles.map((albumTile, index) => (
-      <Tile
+      <AlbumTile
         key={albumTile.id}
         color={staticAlbumTiles[index].color}
         artworkUrl={albumTile.artworkUrl}
@@ -129,4 +128,3 @@ const AnimatedAlbumGrid = ({ albumTiles }) => (
 );
 
 export default AnimatedAlbumGrid;
-// ray test touch >

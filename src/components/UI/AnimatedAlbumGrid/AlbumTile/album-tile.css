@@ -1,6 +1,5 @@
 
-/* ray test touch < */
-.tile {
+.album-tile {
   float: left;
   width: calc(100% / 6);
   height: calc(100% / 3);
@@ -18,21 +17,21 @@
   background-position: 50%;
 }
 
-.tile * {
+.album-tile * {
   pointer-events: none;
 }
 
-.tile:nth-of-type(1) {
+.album-tile:nth-of-type(1) {
   width: calc(100% / 3);
   height: calc(100% / 3 * 2);
 }
 
-.tile:nth-of-type(6) {
+.album-tile:nth-of-type(6) {
   width: calc(100% / 3);
   height: calc(100% / 3 * 2);
 }
 
-.tile:nth-of-type(9) {
+.album-tile:nth-of-type(9) {
   position: absolute;
   top: calc(100% / 3 * 2);
   left: 0;
@@ -40,7 +39,7 @@
   height: calc(100% / 3);
 }
 
-.tile:nth-of-type(10) {
+.album-tile:nth-of-type(10) {
   position: absolute;
   top: calc(100% / 3 * 2);
   left: calc(100% / 6);
@@ -48,7 +47,7 @@
   height: calc(100% / 3);
 }
 
-.tile-footer {
+.album-tile-footer {
   box-sizing: border-box;
   padding: 16px;
   font-size: 16px;
@@ -57,13 +56,13 @@
   position: absolute;
 }
 
-.tile-footer .album, .tile-footer .artist {
+.album-tile-footer .album, .album-tile-footer .artist {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.tile .artist {
+.album-tile .artist {
   font-weight: 300;
   font-size: 14px;
   line-height: 19px;
@@ -71,20 +70,20 @@
 
 @media (min-width: 1288px) {
   /* There's enough vert/horz space for artwork to use contain */
-  .tile {
+  .album-tile {
     background-size: contain;
     background-position: initial;
   }
 
   /* For tiles that still don't work well on contain, revert to cover */
-  .tile:nth-of-type(1), .tile:nth-of-type(7), .tile:nth-of-type(6) {
+  .album-tile:nth-of-type(1), .album-tile:nth-of-type(7), .album-tile:nth-of-type(6) {
     background-size: cover;
     background-position: 50%;
   }
 }
 @media (max-width: 640px) {
-  .tile,
-  .tile:nth-of-type(n) {
+  .album-tile,
+  .album-tile:nth-of-type(n) {
     left: unset;
     top: unset;
     width: calc(100% / 2);
@@ -92,4 +91,3 @@
     position: relative;
   }
 }
-/* ray test touch > */

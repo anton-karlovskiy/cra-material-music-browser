@@ -35,9 +35,7 @@ const App = () => {
     <>
       <Header />
       <main>
-        {/* ray test touch < */}
         <AnimatedAlbumGrid albumTiles={albumTiles} />
-        {/* ray test touch > */}
       </main>
     </>
   );

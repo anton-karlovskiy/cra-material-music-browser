@@ -1,5 +1,4 @@
 
-/* ray test touch < */
 .neon-animated-pages {
   /* MEMO: should be matched with header height */
   height: calc(100vh - 112px);
@@ -13,6 +12,7 @@
   }
 }
 
+/* TODO: double check naming */
 /* MEMO: tile coloring */
 .blue-100 {
   background-color: #c6dafc;
@@ -121,4 +121,3 @@
   background-color: #32444D;
   color: #FFFFFF;
 }
-/* ray test touch > */
