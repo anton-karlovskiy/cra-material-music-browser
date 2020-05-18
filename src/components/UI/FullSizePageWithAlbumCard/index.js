@@ -18,16 +18,25 @@ const FullSizePageWithAlbumCard = ({
 
   return (
     <div className='fullsize-page-with-card'>
-      <div id='fixed'>
-      </div>
+      <div
+        id='fixed'
+        className={`${color}-100`} />
       <div
         id='bg-img'
+        style={{
+          backgroundImage: `url("${artworkUrl}")`,
+        }}
         className='fade'>
       </div>
-      <div id='card'>
+      <div
+        id='card'
+        className={`${color}-300`}>
         <div className='container'>
-          <div className='album-art'>
-          </div>
+          <div
+            style={{
+              backgroundImage: `url("${artworkUrl}")`,
+            }}
+            className='album-art' />
           <div className='album-details'>
             <svg
               id='Layer_1'
@@ -42,10 +51,12 @@ const FullSizePageWithAlbumCard = ({
                 fill='#FFFFFF' />
             </svg>
             <div className='album-text'>
-              <span className='album-name'></span>
-              <span className='artist-name'></span>
+              <span className='album-name'>{albumName}</span>
+              <span className='artist-name'>{artistName}</span>
             </div>
-            <div id='lowerbar'>
+            <div
+              id='lowerbar'
+              className={`${color}-100`}>
               <div id='fab'>
                 <svg
                   width='20px'

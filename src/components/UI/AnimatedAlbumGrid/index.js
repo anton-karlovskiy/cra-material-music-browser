@@ -2,7 +2,6 @@
 import React from 'react';
 
 import AlbumTile from './AlbumTile';
-import FullSizePageWithAlbumCard from './FullSizePageWithAlbumCard';
 import './animated-album-grid.css';
 import { COUNT_OF_TILES_ON_VIEWPORT } from 'utils/constants';
 
@@ -118,11 +117,8 @@ const staticAlbumTiles = [
 
 const AnimatedAlbumGrid = ({
   albumTiles,
-  openedAlbum,
-  openAlbum,
-  closeAlbum
+  openAlbum
 }) => {
-  
 
   return (
     <div className='neon-animated-pages'>
@@ -145,9 +141,6 @@ const AnimatedAlbumGrid = ({
             artistName={albumTile.artistName} />
         );
       })}
-      <FullSizePageWithAlbumCard
-        closeAlbum={closeAlbum}
-        openedAlbum={openedAlbum} />
     </div>
   );
 };

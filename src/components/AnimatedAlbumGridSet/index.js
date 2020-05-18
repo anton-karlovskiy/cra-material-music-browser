@@ -2,6 +2,7 @@
 import React, { useMemo } from 'react';
 
 import AnimatedAlbumGrid from 'components/UI/AnimatedAlbumGrid';
+import FullSizePageWithAlbumCard from 'components/UI/FullSizePageWithAlbumCard';
 import { splitIntoSubArray } from 'utils/helpers';
 import { COUNT_OF_TILES_ON_VIEWPORT } from 'utils/constants';
 
@@ -15,14 +16,20 @@ const AnimatedAlbumGridSet = ({
 
   return (
     <>
-      {albumTilesSet.map((albumTiles, index) => (
-        <AnimatedAlbumGrid
-          key={index}
-          openedAlbum={openedAlbum}
-          openAlbum={openAlbum}
+      {openedAlbum.id ? (
+        <FullSizePageWithAlbumCard
           closeAlbum={closeAlbum}
-          albumTiles={albumTiles} />
-      ))}
+          openedAlbum={openedAlbum} />
+      ) : (
+        <>
+          {albumTilesSet.map((albumTiles, index) => (
+            <AnimatedAlbumGrid
+              key={index}
+              openAlbum={openAlbum}
+              albumTiles={albumTiles} />
+          ))}
+        </>
+      )}
     </>
   );
 };

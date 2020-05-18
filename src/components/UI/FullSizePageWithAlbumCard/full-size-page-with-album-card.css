@@ -2,14 +2,14 @@
 /* ray test touch < */
 /* MEMO: fullsize page with card */
 /* TODO: double check necessity */
-.neon-animated-pages > .fullsize-page-with-card.iron-selected {
+/* .neon-animated-pages > .fullsize-page-with-card.iron-selected {
   display: block;
-}
+} */
 
 /* TODO: double check necessity */
-.neon-animated-pages > .fullsize-page-with-card {
+/* .neon-animated-pages > .fullsize-page-with-card {
   display: none;
-}
+} */
 
 .fullsize-page-with-card {
   position: absolute;
