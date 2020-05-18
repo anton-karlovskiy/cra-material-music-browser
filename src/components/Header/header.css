@@ -1,9 +1,35 @@
 
-header {
-  position: absolute;
+.top-app-bar {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  padding: 0 24px;
   /* MEMO: should be matched with header height */
-  height: 48px;
+  height: 112px;
+  justify-content: space-between;
+  color: var(--palette-text-primary);
+  background-color: var(--palette-grey-900);
+  transition: box-shadow 200ms linear;
+  box-shadow: 0 2px 4px rgba(0,0,0,.5);
+  z-index: 10;
+}
+
+.top-app-bar-inside {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* MEMO: should be matched with header height */
+  height: 72px;
+}
+
+.top-app-bar__options-section {
+  flex-grow: 1;
+}
+
+@media screen and (min-width: 640px) {
+  .top-app-bar {
+    height: auto;
+  }
 }
