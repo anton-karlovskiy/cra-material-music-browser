@@ -87,8 +87,8 @@
 
 .album-details .favorite-star {
   position: absolute;
-  right: 24px;
-  top: 24px;
+  right: 12px;
+  top: 12px;
 }
 
 .album-details .album-text {
@@ -99,8 +99,7 @@
 
 #lowerbar {
   position: relative;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 4px 0;
 }
 
 .music-control {
@@ -123,8 +122,9 @@
   align-items: center;
 
   position: absolute;
+  top: 0;
   right: 30px;
-  top: -50%;
+  transform: translate(0, -50%);
   width: 56px;
   height: 56px;
   border-radius: 50%;
