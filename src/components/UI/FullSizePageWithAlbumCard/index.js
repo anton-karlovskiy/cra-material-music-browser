@@ -16,6 +16,7 @@ const FullSizePageWithAlbumCard = ({
   const {
     id,
     color,
+    fabColor,
     artworkUrl,
     albumName,
     artistName
@@ -51,7 +52,9 @@ const FullSizePageWithAlbumCard = ({
             <div
               id='lowerbar'
               className={`${color}-100`}>
-              <div id='fab'>
+              <div
+                id='fab'
+                className={fabColor}>
                 <PlayListAddIconButton />
               </div>
               <div className='music-control'>

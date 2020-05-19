@@ -11,6 +11,7 @@ const PROXY_URL = 'https://cors-anywhere.herokuapp.com';
 const DEFAULT_ALBUM = {
   id: '',
   color: '',
+  fabColor: '',
   artworkUrl: '',
   albumName: '',
   artistName: ''
@@ -40,6 +41,7 @@ const App = () => {
   const openAlbumHandler = ({
     id,
     color,
+    fabColor,
     artworkUrl,
     albumName,
     artistName
@@ -51,6 +53,7 @@ const App = () => {
       setOpenedAlbum({
         id,
         color,
+        fabColor,
         artworkUrl,
         albumName,
         artistName

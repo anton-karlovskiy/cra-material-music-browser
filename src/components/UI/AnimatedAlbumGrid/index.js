@@ -8,7 +8,7 @@ import { COUNT_OF_TILES_ON_VIEWPORT } from 'utils/constants';
 const staticAlbumTiles = [
   {
     // id: 1,
-    // fabColor: 'green-100',
+    fabColor: 'green-100',
     // artistName: 'Kodaline',
     // albumName: 'In A Perfect World',
     // artWorkUrl: '/assets/images/kodaline.jpg',
@@ -17,7 +17,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 2,
-    // fabColor: 'yuna-yellow',
+    fabColor: 'yuna-yellow',
     // artistName: 'Yuna',
     // albumName: 'Lights and Camera',
     // artWorkUrl: '/assets/images/artworks-000060971310-g3znsu-t500x500.jpg',
@@ -26,7 +26,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 3,
-    // fabColor: 'ellie-blue',
+    fabColor: 'ellie-blue',
     // artistName: 'Ellie Goulding',
     // albumName: 'Halcyon Days',
     // artWorkUrl: '/assets/images/ellie-goulding-halcyon-days-500x500.jpg',
@@ -35,7 +35,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 4,
-    // fabColor: 'green-300',
+    fabColor: 'green-300',
     // artistName: 'One Republic',
     // albumName: 'Native',
     // artWorkUrl: '/assets/images/one-republic.jpg',
@@ -44,7 +44,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 5,
-    // fabColor: 'yuna-yellow',
+    fabColor: 'yuna-yellow',
     // artistName: 'The Strokes',
     // albumName: 'Comedown Machine',
     // artWorkUrl: '/assets/images/strokes-comedownmachine.jpg',
@@ -52,7 +52,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 6,
-    // fabColor: 'pharrell-fabColor:',
+    fabColor: 'pharrell-fab',
     // artistName: 'Pharrell Williams',
     // albumName: 'GIRL',
     // artWorkUrl: '/assets/images/pharrell-girl-bright.jpg',
@@ -61,7 +61,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 7,
-    // fabColor: 'jackson-300',
+    fabColor: 'jackson-300',
     // artistName: 'Flipsyde',
     // albumName: 'We The People',
     // artWorkUrl: '/assets/images/flipside.jpg',
@@ -70,7 +70,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 8,
-    // fabColor: 'portrage-300',
+    fabColor: 'portrage-300',
     // artistName: 'Rhye',
     // albumName: 'Woman',
     // artWorkUrl: '/assets/images/rhye-woman.jpg',
@@ -79,7 +79,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 9,
-    // fabColor: 'yuna-yellow',
+    fabColor: 'yuna-yellow',
     // artistName: 'Jamie Lidell',
     // albumName: 'Jamie Lidell',
     // artWorkUrl: '/assets/images/jamie-lidell-cover.jpg',
@@ -88,7 +88,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 10,
-    // fabColor: 'yuna-yellow',
+    fabColor: 'yuna-yellow',
     // artistName: 'Neon Trees',
     // albumName: 'Pop Psychology',
     // artWorkUrl: '/assets/images/neon-trees-pop-psychology.jpg',
@@ -97,7 +97,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 11,
-    // fabColor: 'yuna-yellow',
+    fabColor: 'yuna-yellow',
     // artistName: 'Foster The People',
     // albumName: 'Supermodel',
     // artWorkUrl: '/assets/images/foster-the-people.jpg',
@@ -106,7 +106,7 @@ const staticAlbumTiles = [
   },
   {
     // id: 12,
-    // fabColor: 'yuna-yellow',
+    fabColor: 'yuna-yellow',
     // artistName: 'Fitz And The Tantrums',
     // albumName: 'More Than Just A Dream',
     // artWorkUrl: '/assets/images/more-than-just-a-dream.jpg',
@@ -118,31 +118,30 @@ const staticAlbumTiles = [
 const AnimatedAlbumGrid = ({
   albumTiles,
   openAlbum
-}) => {
+}) => (
+  <div className='neon-animated-pages'>
+    {albumTiles.map((albumTile, index) => {
+      const albumColor = staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].color;
+      const albumFabColor = staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].fabColor;;
 
-  return (
-    <div className='neon-animated-pages'>
-      {albumTiles.map((albumTile, index) => {
-        const albumColor = staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].color;
-
-        return (
-          <AlbumTile
-            key={albumTile.id}
-            onClick={openAlbum({
-              id: albumTile.id,
-              color: albumColor,
-              artworkUrl: albumTile.artworkUrl,
-              albumName: albumTile.albumName,
-              artistName: albumTile.artistName
-            })}
-            color={albumColor}
-            artworkUrl={albumTile.artworkUrl}
-            albumName={albumTile.albumName}
-            artistName={albumTile.artistName} />
-        );
-      })}
-    </div>
-  );
-};
+      return (
+        <AlbumTile
+          key={albumTile.id}
+          onClick={openAlbum({
+            id: albumTile.id,
+            fabColor: albumFabColor,
+            color: albumColor,
+            artworkUrl: albumTile.artworkUrl,
+            albumName: albumTile.albumName,
+            artistName: albumTile.artistName
+          })}
+          color={albumColor}
+          artworkUrl={albumTile.artworkUrl}
+          albumName={albumTile.albumName}
+          artistName={albumTile.artistName} />
+      );
+    })}
+  </div>
+);
 
 export default AnimatedAlbumGrid;
