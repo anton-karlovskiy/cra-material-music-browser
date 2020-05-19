@@ -1,13 +1,5 @@
 
 /* ray test touch < */
-.fullsize-page-with-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
 .fullsize-page-with-card #fixed, .fullsize-page-with-card #bg-img {
   position: fixed;
   top: 0;
@@ -97,7 +89,6 @@
   position: absolute;
   right: 24px;
   top: 24px;
-  width: 16px;
 }
 
 .album-details .album-text {
