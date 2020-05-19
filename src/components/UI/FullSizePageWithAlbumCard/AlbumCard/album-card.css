@@ -1,0 +1,102 @@
+
+.fullsize-page-with-card .album-card {
+  /* TODO: double check */
+  pointer-events: none;
+  position: relative;
+  margin: 250px 275px 0;
+  min-height: 700px;
+}
+
+.album-card .container {
+  display: flex;
+  user-select: none;
+}
+
+.album-art {
+  width: 360px;
+  height: 360px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.album-name {
+  display: block;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.artist-name {
+  display: block;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.album-details {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.album-details .favorite-star {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+
+.album-details .album-text {
+  flex-grow: 1;
+  text-align: left;
+  margin-left: 40px;
+}
+
+@media (min-width: 640px) {
+  .album-details {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .album-details .album-text {
+    padding: 60px 60px 60px 0;
+  }
+}
+
+@media (max-width: 1288px) {
+  .fullsize-page-with-card .album-card {
+    margin: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .album-card .container {
+    flex-direction: column;
+  }
+
+  .album-art {
+    width: 100%;
+    height: 100vw;
+  }
+
+  .album-details .album-text {
+    margin-top: 10px;
+    margin-left: 25px;
+    min-height: 90px;
+  }
+
+  .album-name {
+    font-size: 30px;
+  }
+
+  .artist-name {
+    font-size: 20px;
+  }
+}

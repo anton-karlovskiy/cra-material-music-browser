@@ -1,0 +1,50 @@
+
+.music-controls-bar {
+  position: relative;
+  padding: 4px 0;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.music-controls svg {
+  fill: #FFFFFF
+}
+
+.play-list-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  right: 30px;
+  transform: translate(0, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  transition: all 0.1s ease-in-out;
+}
+
+.play-list-add:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+@media (max-width: 640px) {
+  .play-list-add {
+    width: 48px;
+    height: 48px;
+    right: 12px;
+  }
+
+  .music-controls {
+    padding: 0 48px;
+  }
+}

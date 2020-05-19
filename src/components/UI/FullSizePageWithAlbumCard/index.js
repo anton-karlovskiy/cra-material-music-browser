@@ -1,13 +1,11 @@
 
-// ray test touch <
 import React from 'react';
 
+import ColorBackground from './ColorBackground';
+import ImageBackground from './ImageBackground';
+import AlbumCard from './AlbumCard';
 import BackspaceIconButton from 'components/UI/IconButtons/BackspaceIconButton';
-import FavoriteStarIconButton from 'components/UI/IconButtons/FavoriteStarIconButton';
-import PlayListAddIconButton from 'components/UI/IconButtons/PlayListAddIconButton';
-import FastRewindIconButton from 'components/UI/IconButtons/FastRewindIconButton';
-import PlayIconButton from 'components/UI/IconButtons/PlayIconButton';
-import FastForwardIconButton from 'components/UI/IconButtons/FastForwardIconButton';
+
 import './full-size-page-with-album-card.css';
 
 const FullSizePageWithAlbumCard = ({
@@ -15,7 +13,6 @@ const FullSizePageWithAlbumCard = ({
   closeAlbum
 }) => {
   const {
-    id,
     color,
     fabColor,
     artworkUrl,
@@ -30,58 +27,16 @@ const FullSizePageWithAlbumCard = ({
         width={28}
         height={28}
         className='backspace-icon-button' />
-      <div
-        id='fixed'
-        className={`${color}-100`} />
-      <div
-        id='bg-img'
-        style={{backgroundImage: `url("${artworkUrl}")`}}
-        className='fade'>
-      </div>
-      <div
-        id='card'
-        className={`${color}-300`}>
-        <div className='container'>
-          <div
-            style={{backgroundImage: `url("${artworkUrl}")`}}
-            className='album-art' />
-          <div className='album-details'>
-            <FavoriteStarIconButton className='favorite-star' />
-            <div className='album-text'>
-              <span className='album-name'>{albumName}</span>
-              <span className='artist-name'>{artistName}</span>
-            </div>
-            <div
-              id='lowerbar'
-              className={`${color}-100`}>
-              <div
-                id='fab'
-                className={fabColor}>
-                <PlayListAddIconButton />
-              </div>
-              <div className='music-control'>
-                <FastRewindIconButton />
-                <PlayIconButton />
-                <FastForwardIconButton />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <div className='album-list'>
-          <table>
-            {% for index in range(0, 20) -%}
-              <tr>
-                <td>{{index}}</td>
-                <td>Song name</td>
-                <td>3:54</td>
-              </tr>
-            {%- endfor %}
-          </table>
-        </div> */}
-      </div>
+      <ColorBackground color={color} />
+      <ImageBackground url={artworkUrl} />
+      <AlbumCard
+        color={color}
+        fabColor={fabColor}
+        artworkUrl={artworkUrl}
+        albumName={albumName}
+        artistName={artistName} />
     </div>
   );
 };
 
 export default FullSizePageWithAlbumCard;
-// ray test touch >
