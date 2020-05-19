@@ -9,11 +9,14 @@
 }
 
 .fullsize-page-with-card #bg-img {
+  /* TODO: double check */
   pointer-events: none;
   background-size: cover;
+  opacity: 0.8;
 }
 
 .fullsize-page-with-card #card {
+  /* TODO: double check */
   pointer-events: none;
   position: relative;
   margin: 250px 275px 0;
@@ -112,7 +115,6 @@
 }
 
 .music-control svg {
-  width: 24px;
   fill: #FFFFFF
 }
 
@@ -216,5 +218,21 @@
   width: 20%;
   text-align: right;
   color: #ADADAD;
+}
+
+.fullsize-page-with-card .backspace-icon-button {
+  position: fixed;
+  /* MEMO: should be matched with header height */
+  top: calc(112px + 16px);
+  left: 12px;
+  z-index: 100;
+  fill: var(--palette-common-black);
+}
+
+@media screen and (min-width: 640px) {
+  .fullsize-page-with-card .backspace-icon-button {
+    /* MEMO: should be matched with header height */
+    top: calc(72px + 16px);
+  }
 }
 /* ray test touch > */

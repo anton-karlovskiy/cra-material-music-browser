@@ -18,6 +18,7 @@
 }
 
 .album-tile * {
+  /* TODO: double check */
   pointer-events: none;
 }
 

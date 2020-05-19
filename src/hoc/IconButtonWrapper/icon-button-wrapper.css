@@ -26,6 +26,7 @@
   opacity: 0.08;
   border-radius: 50%;
   transition: opacity 15ms linear, background-color 15ms linear;
+  /* TODO: double check */
   pointer-events: none;
   content: "";
 }

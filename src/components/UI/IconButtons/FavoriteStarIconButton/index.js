@@ -7,7 +7,8 @@ const FavoriteStarIconButton = props => (
   <IconButtonWrapper {...props}>
     <svg
       id='Layer_1'
-      width='16px'
+      width='16'
+      height='16'
       data-name='Layer 1'
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 25 25'>

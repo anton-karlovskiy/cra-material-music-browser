@@ -2,6 +2,7 @@
 // ray test touch <
 import React from 'react';
 
+import BackspaceIconButton from 'components/UI/IconButtons/BackspaceIconButton';
 import FavoriteStarIconButton from 'components/UI/IconButtons/FavoriteStarIconButton';
 import PlayListAddIconButton from 'components/UI/IconButtons/PlayListAddIconButton';
 import FastRewindIconButton from 'components/UI/IconButtons/FastRewindIconButton';
@@ -24,14 +25,17 @@ const FullSizePageWithAlbumCard = ({
 
   return (
     <div className='fullsize-page-with-card'>
+      <BackspaceIconButton
+        onClick={closeAlbum}
+        width={28}
+        height={28}
+        className='backspace-icon-button' />
       <div
         id='fixed'
         className={`${color}-100`} />
       <div
         id='bg-img'
-        style={{
-          backgroundImage: `url("${artworkUrl}")`,
-        }}
+        style={{backgroundImage: `url("${artworkUrl}")`}}
         className='fade'>
       </div>
       <div
@@ -39,9 +43,7 @@ const FullSizePageWithAlbumCard = ({
         className={`${color}-300`}>
         <div className='container'>
           <div
-            style={{
-              backgroundImage: `url("${artworkUrl}")`,
-            }}
+            style={{backgroundImage: `url("${artworkUrl}")`}}
             className='album-art' />
           <div className='album-details'>
             <FavoriteStarIconButton className='favorite-star' />

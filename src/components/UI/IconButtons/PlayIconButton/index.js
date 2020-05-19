@@ -6,6 +6,8 @@ import IconButtonWrapper from 'hoc/IconButtonWrapper';
 const PlayIconButton = props => (
   <IconButtonWrapper {...props}>
     <svg
+      width='24'
+      height='24'
       viewBox='0 0 48 48'
       xmlns='http://www.w3.org/2000/svg'>
       <path
