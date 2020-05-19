@@ -9,6 +9,8 @@ import BackspaceIconButton from 'components/UI/IconButtons/BackspaceIconButton';
 import './full-size-page-with-album-card.css';
 
 const FullSizePageWithAlbumCard = ({
+  colorBackgroundRef,
+  albumCardRef,
   openedAlbum,
   closeAlbum
 }) => {
@@ -27,9 +29,14 @@ const FullSizePageWithAlbumCard = ({
         width={28}
         height={28}
         className='backspace-icon-button' />
-      <ColorBackground color={color} />
+      <ColorBackground
+        // TODO: react forward
+        colorBackgroundRef={colorBackgroundRef}
+        color={color} />
       <ImageBackground url={artworkUrl} />
       <AlbumCard
+        // TODO: react forward
+        albumCardRef={albumCardRef}
         color={color}
         fabColor={fabColor}
         artworkUrl={artworkUrl}

@@ -7,13 +7,16 @@ import AlbumList from './AlbumList';
 import './album-card.css';
 
 const AlbumCard = ({
+  albumCardRef,
   color,
   fabColor,
   artworkUrl,
   albumName,
   artistName
 }) => (
-  <div className={`album-card ${color}-300`}>
+  <div
+    ref={albumCardRef}
+    className={`album-card ${color}-300`}>
     <div className='container'>
       <div
         style={{backgroundImage: `url("${artworkUrl}")`}}

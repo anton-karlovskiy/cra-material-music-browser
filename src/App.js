@@ -1,20 +1,22 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import Header from 'components/Header';
 import AnimatedAlbumGridSet from 'components/AnimatedAlbumGridSet';
 import './App.css';
+import { runRippleAnimation, runHeroAnimation } from 'utils/animations';
 
 // TODO: dig into more
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com';
 
-const DEFAULT_ALBUM = {
+const DEFAULT_OPENED_ALBUM = {
   id: '',
   color: '',
   fabColor: '',
   artworkUrl: '',
   albumName: '',
-  artistName: ''
+  artistName: '',
+  event: null
 };
 
 const App = () => {
@@ -36,7 +38,28 @@ const App = () => {
       }
     })();
   }, []);
-  const [openedAlbum, setOpenedAlbum] = useState(DEFAULT_ALBUM);
+  const [openedAlbum, setOpenedAlbum] = useState(DEFAULT_OPENED_ALBUM);
+  const colorBackgroundRef = useRef(null);
+  const albumCardRef = useRef(null);
+
+  useEffect(() => {
+    if (openedAlbum.event) {
+      runRippleAnimation({
+        gesture: {
+          x: openedAlbum.event.x || openedAlbum.event.pageX,
+          y: openedAlbum.event.y || openedAlbum.event.pageY
+        },
+        from: openedAlbum.event?.target,
+        to: colorBackgroundRef?.current
+      });
+
+      runHeroAnimation({
+        delay: 150,
+        from: openedAlbum.event?.target,
+        to: albumCardRef?.current
+      });
+    }
+  }, [openedAlbum.event]);
 
   const openAlbumHandler = ({
     id,
@@ -47,22 +70,28 @@ const App = () => {
     artistName
   }) => event => {
     if (id !== openedAlbum.id) {
-      // ray test touch <
-      console.log('ray : ***** [openAlbumHandler] id, event => ', id, event);
-      // ray test touch >
+      const boundingClientRect = event.target.getBoundingClientRect();
       setOpenedAlbum({
         id,
         color,
         fabColor,
         artworkUrl,
         albumName,
-        artistName
+        artistName,
+        // TODO: tweak for unrendered from element
+        event: {
+          ...event,
+          target: {
+            ...event.target,
+            getBoundingClientRect: () => boundingClientRect
+          }
+        }
       });
     }
   };
 
   const closeAlbumHandler = () => {
-    setOpenedAlbum(DEFAULT_ALBUM);
+    setOpenedAlbum(DEFAULT_OPENED_ALBUM);
   };
 
   return (
@@ -71,6 +100,8 @@ const App = () => {
       <main>
         {albumTiles.length > 0 && (
           <AnimatedAlbumGridSet
+            colorBackgroundRef={colorBackgroundRef}
+            albumCardRef={albumCardRef}
             openedAlbum={openedAlbum}
             openAlbum={openAlbumHandler}
             closeAlbum={closeAlbumHandler}

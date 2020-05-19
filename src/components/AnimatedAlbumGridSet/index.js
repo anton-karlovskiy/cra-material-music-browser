@@ -10,7 +10,9 @@ const AnimatedAlbumGridSet = ({
   albumTiles,
   openedAlbum,
   openAlbum,
-  closeAlbum
+  closeAlbum,
+  colorBackgroundRef,
+  albumCardRef
 }) => {
   const albumTilesSet = useMemo(() => splitIntoSubArray(albumTiles, COUNT_OF_TILES_ON_VIEWPORT), [albumTiles]);
 
@@ -18,6 +20,8 @@ const AnimatedAlbumGridSet = ({
     <>
       {openedAlbum.id ? (
         <FullSizePageWithAlbumCard
+          colorBackgroundRef={colorBackgroundRef}
+          albumCardRef={albumCardRef}
           closeAlbum={closeAlbum}
           openedAlbum={openedAlbum} />
       ) : (
