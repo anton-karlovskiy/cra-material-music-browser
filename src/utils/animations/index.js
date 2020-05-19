@@ -1,6 +1,22 @@
 
 let rippleAnimation;
 let heroAnimation;
+let fadeOutAnimation;
+let transformAnimation;
+
+const ANIMATION_PLAY_STATE = {
+  RUNNING: 'running'
+};
+
+// TODO: we could achieve this blocking with pointer-events: none;
+const checkAnimationsRunning = () => {
+  if (rippleAnimation && rippleAnimation.playState === ANIMATION_PLAY_STATE.RUNNING) return true;
+  if (heroAnimation && heroAnimation.playState === ANIMATION_PLAY_STATE.RUNNING) return true;
+  if (fadeOutAnimation && fadeOutAnimation.playState === ANIMATION_PLAY_STATE.RUNNING) return true;
+  if (transformAnimation && transformAnimation.playState === ANIMATION_PLAY_STATE.RUNNING) return true;
+
+  return false;
+};
 
 // MEMO: inspired by https://stackoverflow.com/questions/27745438/how-to-compute-getboundingclientrect-without-considering-transforms
 const getAdjustedBoundingClientReact = el => {
@@ -10,13 +26,13 @@ const getAdjustedBoundingClientReact = el => {
 
   if (tx) {
     let sx, sy, dx, dy;
-    if (tx.startsWith("matrix3d(")) {
+    if (tx.startsWith('matrix3d(')) {
       const ta = tx.slice(9,-1).split(/, /);
       sx = +ta[0];
       sy = +ta[5];
       dx = +ta[12];
       dy = +ta[13];
-    } else if (tx.startsWith("matrix(")) {
+    } else if (tx.startsWith('matrix(')) {
       const ta = tx.slice(7,-1).split(/, /);
       sx = +ta[0];
       sy = +ta[3];
@@ -28,7 +44,7 @@ const getAdjustedBoundingClientReact = el => {
 
     const to = style.transformOrigin;
     const x = rect.x - dx - (1 - sx) * parseFloat(to);
-    const y = rect.y - dy - (1 - sy) * parseFloat(to.slice(to.indexOf(" ") + 1));
+    const y = rect.y - dy - (1 - sy) * parseFloat(to.slice(to.indexOf(' ') + 1));
     const w = sx ? rect.width / sx : el.offsetWidth;
     const h = sy ? rect.height / sy : el.offsetHeight;
     return {
@@ -46,7 +62,11 @@ const getAdjustedBoundingClientReact = el => {
   }
 };
 
-const runRippleAnimation = ({ gesture = null, from, to }) => {
+const runRippleAnimation = ({
+  gesture = null,
+  from,
+  to
+}) => {
   let translateX, translateY;
   const fromRect = from.getBoundingClientRect();
   const toRect = to.getBoundingClientRect();
@@ -97,7 +117,11 @@ const runRippleAnimation = ({ gesture = null, from, to }) => {
   });
 };
 
-const runHeroAnimation = ({ delay = 0, from, to }) => {
+const runHeroAnimation = ({
+  delay = 0,
+  from,
+  to
+}) => {
   const fromRect = from.getBoundingClientRect();
   // TODO: this might not be required once we resolve animation-fill-mode--not--working issue
   const toRect = getAdjustedBoundingClientReact(to);
@@ -136,7 +160,72 @@ const runHeroAnimation = ({ delay = 0, from, to }) => {
   });
 };
 
+const runFadeOutAnimation = ({
+  node,
+  callback
+}) => {
+  const fadeOutAnimationKeyframes = new KeyframeEffect(
+    node, [
+      {'opacity': '1'},
+      {'opacity': '0'}
+    ], {
+      duration: 500,
+      easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      // TODO: the last keyframe's transform (opacity: 0;) persisted probably due to display: none; of fullsizePageWithCard
+      // fill: 'both'
+      // TODO: tweak
+      fill: 'backwards'
+    }
+  );
+
+  fadeOutAnimation = new Animation(fadeOutAnimationKeyframes, document.timeline);
+  fadeOutAnimation.play();
+
+  fadeOutAnimation.onfinish = (() => {
+    // MEMO: could be simpler
+    if (!transformAnimation || transformAnimation.playState !== ANIMATION_PLAY_STATE.RUNNING) {
+      callback();
+    }
+  });
+};
+
+const runTransformAnimation = ({
+  transformFrom = 'none',
+  transformTo = 'none',
+  node,
+  transformOrigin,
+  callback
+}) => {
+  const transformAnimationKeyframes = new KeyframeEffect(
+    node, [
+      {'transform': transformFrom},
+      {'transform': transformTo}
+    ], {
+      duration: 500,
+      easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      fill: 'both'
+    }
+  );
+
+  if (transformOrigin) {
+    node.style.transformOrigin = transformOrigin;
+  }
+
+  transformAnimation = new Animation(transformAnimationKeyframes, document.timeline);
+  transformAnimation.play();
+
+  transformAnimation.onfinish = (() => {
+    // MEMO: the same
+    if (!fadeOutAnimation || fadeOutAnimation.playState !== ANIMATION_PLAY_STATE.RUNNING) {
+      callback();
+    }
+  });
+};
+
 export {
   runRippleAnimation,
-  runHeroAnimation
+  runHeroAnimation,
+  runFadeOutAnimation,
+  runTransformAnimation,
+  checkAnimationsRunning
 };

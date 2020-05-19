@@ -4,7 +4,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import Header from 'components/Header';
 import AnimatedAlbumGridSet from 'components/AnimatedAlbumGridSet';
 import './App.css';
-import { runRippleAnimation, runHeroAnimation } from 'utils/animations';
+import {
+  runRippleAnimation,
+  runHeroAnimation,
+  runFadeOutAnimation,
+  runTransformAnimation,
+  checkAnimationsRunning
+} from 'utils/animations';
 
 // TODO: dig into more
 const PROXY_URL = 'https://cors-anywhere.herokuapp.com';
@@ -91,7 +97,22 @@ const App = () => {
   };
 
   const closeAlbumHandler = () => {
-    setOpenedAlbum(DEFAULT_OPENED_ALBUM);
+    if (checkAnimationsRunning()) return;
+    const callback = () => {
+      setOpenedAlbum(DEFAULT_OPENED_ALBUM);
+    };
+
+    runFadeOutAnimation({
+      node: colorBackgroundRef?.current,
+      callback
+    });
+
+    runTransformAnimation({
+      transformFrom: 'none',
+      transformTo: 'translate(0px,-200vh) scale(0.9,1)',
+      node: albumCardRef?.current,
+      callback
+    });
   };
 
   return (
