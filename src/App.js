@@ -10,7 +10,6 @@ import {
   PROXY_URL,
   COUNTRY_OR_REGION_OPTIONS,
   FEED_TYPE_OPTIONS,
-  GENRE_OPTIONS,
   RESULTS_LIMIT_OPTIONS
 } from 'utils/constants';
 
@@ -31,7 +30,7 @@ const App = () => {
     initialInputs: {
       [INPUT_NAMES.COUNTRY_OR_REGION]: COUNTRY_OR_REGION_OPTIONS[0].value,
       [INPUT_NAMES.FEED_TYPE]: FEED_TYPE_OPTIONS[0].value,
-      [INPUT_NAMES.GENRE]: GENRE_OPTIONS[0].value,
+      [INPUT_NAMES.GENRE]: 'all', // TODO: hardcoded
       [INPUT_NAMES.RESULTS_LIMIT]: RESULTS_LIMIT_OPTIONS[0].value
     }
   });
@@ -40,7 +39,6 @@ const App = () => {
     setAlbumTiles([]);
     setLoading(true);
     try {
-      // TODO: dropdown options based URL
       const response =
         await fetch(`${PROXY_URL}/https://rss.itunes.apple.com/api/v1/${inputs[INPUT_NAMES.COUNTRY_OR_REGION]}/apple-music/${inputs[INPUT_NAMES.FEED_TYPE]}/${inputs[INPUT_NAMES.GENRE]}/${inputs[INPUT_NAMES.RESULTS_LIMIT]}/explicit.json`);
       const json = await response.json();

@@ -43,16 +43,21 @@ const AppleMusicFeedOptions = ({
 }) => {
   return (
     <div className={`${className} apple-music-feed-options`}>
-      {appleMusicFeedOptions.map(appleMusicFeedOption => (
-        // TODO: conditional options
-        <Select
-          disabled={disabled || loading}
-          key={appleMusicFeedOption.name}
-          name={appleMusicFeedOption.name}
-          value={inputs[appleMusicFeedOption.name]}
-          onChange={inputChange}
-          options={appleMusicFeedOption.options} />
-      ))}
+      {appleMusicFeedOptions.map(appleMusicFeedOption => {
+        const options = appleMusicFeedOption.name === INPUT_NAMES.GENRE
+          ? appleMusicFeedOption.options[inputs[INPUT_NAMES.FEED_TYPE]]
+          : appleMusicFeedOption.options;
+
+        return (
+          <Select
+            disabled={disabled || loading}
+            key={appleMusicFeedOption.name}
+            name={appleMusicFeedOption.name}
+            value={inputs[appleMusicFeedOption.name]}
+            onChange={inputChange}
+            options={options} />
+        );
+      })}
     </div>
   );
 };
