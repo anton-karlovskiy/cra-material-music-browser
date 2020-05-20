@@ -1,15 +1,12 @@
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import './color-background.css';
 
-const ColorBackground = ({
-  colorBackgroundRef,
-  color
-}) => (
+const ColorBackground = forwardRef(({ color }, ref) => (
   <div
-    ref={colorBackgroundRef}
+    ref={ref}
     className={`color-background ${color}-100`} />
-);
+));
 
 export default ColorBackground;

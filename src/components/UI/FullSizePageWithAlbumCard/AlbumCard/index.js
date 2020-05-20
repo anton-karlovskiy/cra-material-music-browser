@@ -1,21 +1,20 @@
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import FavoriteStarIconButton from 'components/UI/IconButtons/FavoriteStarIconButton';
 import MusicControlsBar from './MusicControlsBar';
 import AlbumList from './AlbumList';
 import './album-card.css';
 
-const AlbumCard = ({
-  albumCardRef,
+const AlbumCard = forwardRef(({
   color,
   fabColor,
   artworkUrl,
   albumName,
   artistName
-}) => (
+}, ref) => (
   <div
-    ref={albumCardRef}
+    ref={ref}
     className={`album-card ${color}-300`}>
     <div className='container'>
       <div
@@ -34,6 +33,6 @@ const AlbumCard = ({
     </div>
     <AlbumList />
   </div>
-);
+));
 
 export default AlbumCard;

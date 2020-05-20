@@ -47,6 +47,7 @@ const App = () => {
   }, []);
   const [openedAlbum, setOpenedAlbum] = useState(DEFAULT_OPENED_ALBUM);
   const colorBackgroundRef = useRef(null);
+  const imageBackgroundRef = useRef(null);
   const albumCardRef = useRef(null);
 
   useEffect(() => {
@@ -104,7 +105,7 @@ const App = () => {
     };
 
     runFadeOutAnimation({
-      node: colorBackgroundRef?.current,
+      node: imageBackgroundRef?.current || colorBackgroundRef?.current,
       callback
     });
 
@@ -123,6 +124,7 @@ const App = () => {
         {albumTiles.length > 0 && (
           <AnimatedAlbumGridSet
             colorBackgroundRef={colorBackgroundRef}
+            imageBackgroundRef={imageBackgroundRef}
             albumCardRef={albumCardRef}
             openedAlbum={openedAlbum}
             openAlbum={openAlbumHandler}

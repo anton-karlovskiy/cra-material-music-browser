@@ -5,11 +5,11 @@ import ColorBackground from './ColorBackground';
 import ImageBackground from './ImageBackground';
 import AlbumCard from './AlbumCard';
 import BackspaceIconButton from 'components/UI/IconButtons/BackspaceIconButton';
-
 import './full-size-page-with-album-card.css';
 
 const FullSizePageWithAlbumCard = ({
   colorBackgroundRef,
+  imageBackgroundRef,
   albumCardRef,
   openedAlbum,
   closeAlbum
@@ -30,13 +30,13 @@ const FullSizePageWithAlbumCard = ({
         height={28}
         className='backspace-icon-button' />
       <ColorBackground
-        // TODO: react forward
-        colorBackgroundRef={colorBackgroundRef}
+        ref={colorBackgroundRef}
         color={color} />
-      <ImageBackground url={artworkUrl} />
+      <ImageBackground
+        ref={imageBackgroundRef}
+        url={artworkUrl} />
       <AlbumCard
-        // TODO: react forward
-        albumCardRef={albumCardRef}
+        ref={albumCardRef}
         color={color}
         fabColor={fabColor}
         artworkUrl={artworkUrl}
