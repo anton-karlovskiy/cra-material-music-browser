@@ -30,6 +30,7 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
+        // TODO: dropdown options based URL
         const response = await fetch(`${PROXY_URL}/https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/24/explicit.json`);
         const json = await response.json();
         const albumTiles = json.feed.results.map(result => ({

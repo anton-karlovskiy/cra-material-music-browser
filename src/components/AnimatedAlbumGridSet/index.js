@@ -15,25 +15,25 @@ const AnimatedAlbumGridSet = ({
   albumCardRef
 }) => {
   const albumTilesSet = useMemo(() => splitIntoSubArray(albumTiles, COUNT_OF_TILES_ON_VIEWPORT), [albumTiles]);
+  const fullPageOpened = openedAlbum.id !== '';
 
   return (
     <>
-      {openedAlbum.id ? (
+      <div style={{display: fullPageOpened ? 'block' : 'none'}}>
         <FullSizePageWithAlbumCard
           colorBackgroundRef={colorBackgroundRef}
           albumCardRef={albumCardRef}
           closeAlbum={closeAlbum}
           openedAlbum={openedAlbum} />
-      ) : (
-        <>
-          {albumTilesSet.map((albumTiles, index) => (
-            <AnimatedAlbumGrid
-              key={index}
-              openAlbum={openAlbum}
-              albumTiles={albumTiles} />
-          ))}
-        </>
-      )}
+      </div>
+      <div style={{display: fullPageOpened ? 'none' : 'block'}}>
+        {albumTilesSet.map((albumTiles, index) => (
+          <AnimatedAlbumGrid
+            key={index}
+            openAlbum={openAlbum}
+            albumTiles={albumTiles} />
+        ))}
+      </div>
     </>
   );
 };
