@@ -7,9 +7,9 @@ main {
   /* MEMO: should be matched with footer height */
   /* padding-bottom: 48px; */
   /* MEMO: should be matched with header height */
-  margin-top: 112px;
+  margin-top: 152px;
   /* MEMO: should be matched with header height */
-  /* min-height: calc(100vh - 112px); */
+  /* min-height: calc(100vh - 152px); */
 }
 
 @media screen and (min-width: 640px) {

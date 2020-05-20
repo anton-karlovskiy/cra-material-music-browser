@@ -6,7 +6,7 @@
   right: 0;
   padding: 0 24px;
   /* MEMO: should be matched with header height */
-  height: 112px;
+  height: 152px;
   justify-content: space-between;
   color: var(--palette-text-primary);
   background-color: var(--palette-grey-900);
@@ -16,9 +16,9 @@
 }
 
 .top-app-bar-inside {
-  position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   /* MEMO: should be matched with header height */
   height: 72px;
@@ -32,5 +32,16 @@
 @media screen and (min-width: 640px) {
   .top-app-bar {
     height: auto;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .top-app-bar__options-section {
+    position: absolute;
+    padding: 0;
+    bottom: 8px;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }

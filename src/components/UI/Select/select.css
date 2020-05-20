@@ -4,7 +4,7 @@
 .select {
   position: relative;
   display: inline-flex;
-  width: 11em;
+  min-width: 11em;
   height: 2.25em;
   line-height: 2;
   overflow: hidden;

@@ -1,13 +1,13 @@
 
 .apple-music-feed-options {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 4px;
   justify-content: center;
 }
 
-.apple-music-feed-options > .select {
-  margin-right: 4px;
-}
-
-.apple-music-feed-options > .select:last-of-type {
-  margin-right: 0;
+@media screen and (max-width: 640px) {
+  .apple-music-feed-options {
+    grid-template-columns: auto auto;
+  }
 }

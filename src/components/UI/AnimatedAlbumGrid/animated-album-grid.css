@@ -1,7 +1,7 @@
 
 .neon-animated-pages {
   /* MEMO: should be matched with header height */
-  height: calc(100vh - 112px);
+  height: calc(100vh - 152px);
   position: relative;
 }
 
