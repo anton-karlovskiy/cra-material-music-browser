@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Header from 'components/Header';
 import AnimatedAlbumGridSet from 'containers/AnimatedAlbumGridSet';
@@ -17,9 +17,11 @@ import {
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [albumTiles, setAlbumTiles] = useState([]);
+  useEffect(() => {
+    getRSSFeed();
+  }, []);
 
-  const submitCallback = async () => {
-
+  const getRSSFeed = async () => {
     setAlbumTiles([]);
     setLoading(true);
     try {
@@ -39,6 +41,10 @@ const App = () => {
     }
 
     setLoading(false);
+  };
+  
+  const submitCallback = () => {
+    getRSSFeed();
   };
 
   const {
