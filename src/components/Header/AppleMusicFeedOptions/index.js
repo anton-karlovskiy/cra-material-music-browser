@@ -85,7 +85,7 @@ const appleMusicFeedOptions = [
 
 const AppleMusicFeedOptions = ({ className }) => {
   return (
-    <div className={className}>
+    <div className={`${className} apple-music-feed-options`}>
       {appleMusicFeedOptions.map(appleMusicFeedOption => (
         <Select
           key={appleMusicFeedOption.label}
