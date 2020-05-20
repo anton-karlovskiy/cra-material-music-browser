@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import Header from 'components/Header';
 import AnimatedAlbumGridSet from 'containers/AnimatedAlbumGridSet';
@@ -17,11 +17,26 @@ import {
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [albumTiles, setAlbumTiles] = useState([]);
-  useEffect(() => {
+  
+  const submitCallback = () => {
     getRSSFeed();
-  }, []);
+  };
 
-  const getRSSFeed = async () => {
+  const {
+    inputs,
+    inputChangeHandler,
+    onSubmitHandler
+  } = useForm({
+    submitCallback,
+    initialInputs: {
+      [INPUT_NAMES.COUNTRY_OR_REGION]: COUNTRY_OR_REGION_OPTIONS[0].value,
+      [INPUT_NAMES.FEED_TYPE]: FEED_TYPE_OPTIONS[0].value,
+      [INPUT_NAMES.GENRE]: GENRE_OPTIONS[0].value,
+      [INPUT_NAMES.RESULTS_LIMIT]: RESULTS_LIMIT_OPTIONS[0].value
+    }
+  });
+
+  const getRSSFeed = useCallback(async () => {
     setAlbumTiles([]);
     setLoading(true);
     try {
@@ -41,25 +56,11 @@ const App = () => {
     }
 
     setLoading(false);
-  };
-  
-  const submitCallback = () => {
-    getRSSFeed();
-  };
+  }, [inputs, setAlbumTiles, setLoading]);
 
-  const {
-    inputs,
-    inputChangeHandler,
-    onSubmitHandler
-  } = useForm({
-    submitCallback,
-    initialInputs: {
-      [INPUT_NAMES.COUNTRY_OR_REGION]: COUNTRY_OR_REGION_OPTIONS[0].value,
-      [INPUT_NAMES.FEED_TYPE]: FEED_TYPE_OPTIONS[0].value,
-      [INPUT_NAMES.GENRE]: GENRE_OPTIONS[0].value,
-      [INPUT_NAMES.RESULTS_LIMIT]: RESULTS_LIMIT_OPTIONS[0].value
-    }
-  });
+  useEffect(() => {
+    getRSSFeed();
+  }, [getRSSFeed]);
   
   return (
     <>

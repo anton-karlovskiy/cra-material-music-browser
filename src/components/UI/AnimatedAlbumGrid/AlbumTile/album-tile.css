@@ -6,6 +6,7 @@
   position: relative;
   box-sizing: border-box;
   border: 2px solid black;
+  cursor: pointer;
 
   /**
    * Display the middle of the album art unless we
