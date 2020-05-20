@@ -7,6 +7,7 @@ import SearchIconButton from 'components/UI/IconButtons/SearchIconButton';
 import './header.css';
 
 const Header = ({
+  loading,
   inputs,
   inputChange,
   onSubmit
@@ -17,10 +18,13 @@ const Header = ({
       className='top-app-bar-inside'>
       <ProductLogoTitle />
       <AppleMusicFeedOptions
+        loading={loading}
         inputs={inputs}
         inputChange={inputChange}
         className='top-app-bar__options-section' />
-      <SearchIconButton type='submit' />
+      <SearchIconButton
+        type='submit'
+        loading={loading} />
     </form>
   </header>
 );

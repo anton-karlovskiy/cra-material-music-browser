@@ -23,18 +23,18 @@
   right: 0;
   font-size: .625rem;
   padding: 0 1em;
-  background: #34495e;
-  cursor: pointer;
+  background-color: #34495e;
   pointer-events: none;
   -webkit-transition: .25s all ease;
   -o-transition: .25s all ease;
   transition: .25s all ease;
 }
 
+/* TODO: block for disabled effect for now */
 /* Transition */
-.select:hover::after {
+/* .select:hover::after {
   color: #f39c12;
-}
+} */
 
 /* Reset Select */
 select {
@@ -55,4 +55,8 @@ select {
 /* Remove IE arrow */
 select::-ms-expand {
   display: none;
+}
+
+select:disabled {
+  cursor: default;
 }

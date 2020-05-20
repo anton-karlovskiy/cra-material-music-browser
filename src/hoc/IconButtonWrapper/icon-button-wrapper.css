@@ -29,3 +29,11 @@
   border-radius: 50%;
   transition: opacity 15ms linear, background-color 15ms linear;
 }
+
+button:disabled.svg-icon-container {
+  cursor: default;
+}
+
+button:disabled.svg-icon-container:hover:after {
+  display: none;
+}

@@ -65,6 +65,7 @@ const App = () => {
   return (
     <>
       <Header
+        loading={loading}
         inputs={inputs}
         inputChange={inputChangeHandler}
         onSubmit={onSubmitHandler} />

@@ -35,6 +35,8 @@ const appleMusicFeedOptions = [
 ];
 
 const AppleMusicFeedOptions = ({
+  loading,
+  disabled,
   className,
   inputs,
   inputChange
@@ -44,6 +46,7 @@ const AppleMusicFeedOptions = ({
       {appleMusicFeedOptions.map(appleMusicFeedOption => (
         // TODO: conditional options
         <Select
+          disabled={disabled || loading}
           key={appleMusicFeedOption.name}
           name={appleMusicFeedOption.name}
           value={inputs[appleMusicFeedOption.name]}
