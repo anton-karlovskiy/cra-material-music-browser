@@ -20,13 +20,12 @@
   position: absolute;
   top: calc(50% - 50%);
   left: calc(50% - 50%);
+  content: "";
+  pointer-events: none;
   width: 100%;
   height: 100%;
   background-color: var(--palette-common-white);
   opacity: 0.08;
   border-radius: 50%;
   transition: opacity 15ms linear, background-color 15ms linear;
-  /* TODO: double check */
-  pointer-events: none;
-  content: "";
 }

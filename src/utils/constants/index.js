@@ -64,20 +64,20 @@ const GENRE_OPTIONS = [
 
 const RESULTS_LIMIT_OPTIONS = [
   {
-    label: '10',
-    value: 10
+    label: '12',
+    value: 12
   },
   {
-    label: '25',
-    value: 25
+    label: '24',
+    value: 24
   },
   {
-    label: '50',
-    value: 50
+    label: '60',
+    value: 60
   },
   {
-    label: '100',
-    value: 100
+    label: '96',
+    value: 96
   }
 ];
 

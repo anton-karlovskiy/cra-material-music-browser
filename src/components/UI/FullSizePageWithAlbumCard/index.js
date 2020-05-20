@@ -4,8 +4,7 @@ import React from 'react';
 import ColorBackground from './ColorBackground';
 import ImageBackground from './ImageBackground';
 import AlbumCard from './AlbumCard';
-import BackspaceIconButton from 'components/UI/IconButtons/BackspaceIconButton';
-import './full-size-page-with-album-card.css';
+import BackButton from 'components/BackButton';
 
 const FullSizePageWithAlbumCard = ({
   colorBackgroundRef,
@@ -24,11 +23,7 @@ const FullSizePageWithAlbumCard = ({
 
   return (
     <div className='fullsize-page-with-card'>
-      <BackspaceIconButton
-        onClick={closeAlbum}
-        width={28}
-        height={28}
-        className='backspace-icon-button' />
+      <BackButton onClick={closeAlbum} />
       <ColorBackground
         ref={colorBackgroundRef}
         color={color} />
