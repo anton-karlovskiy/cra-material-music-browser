@@ -6,16 +6,19 @@ import AppleMusicFeedOptions from './AppleMusicFeedOptions';
 import SearchIconButton from 'components/UI/IconButtons/SearchIconButton';
 import './header.css';
 
+// ray test touch <
 const Header = () => {
+
   return (
     <header className='top-app-bar'>
-      <div className='top-app-bar-inside'>
+      <form className='top-app-bar-inside'>
         <ProductLogoTitle />
         <AppleMusicFeedOptions className='top-app-bar__options-section' />
         <SearchIconButton />
-      </div>
+      </form>
     </header>
   );
 };
+// ray test touch >
 
 export default Header;
