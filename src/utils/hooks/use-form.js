@@ -1,5 +1,4 @@
 
-// ray test touch <
 import { useState, useCallback } from 'react';
 
 const useForm = ({ submitCallback, initialInputs = {} } = {}) => {
@@ -35,4 +34,3 @@ const useForm = ({ submitCallback, initialInputs = {} } = {}) => {
 };
 
 export default useForm;
-// ray test touch >

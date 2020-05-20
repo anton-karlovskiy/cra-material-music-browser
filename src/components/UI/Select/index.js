@@ -4,14 +4,11 @@ import React from 'react';
 import './select.css';
 
 const Select = ({
-  value,
-  onChange,
-  options = []
+  options = [],
+  ...rest
 }) => (
   <div className='select'>
-    <select
-      value={value}
-      onChange={onChange}>
+    <select {...rest}>
       {options.map(option => (
         <option
           key={option.value}

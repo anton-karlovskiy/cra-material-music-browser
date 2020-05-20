@@ -3,92 +3,51 @@ import React from 'react';
 
 import Select from 'components/UI/Select';
 import './apple-music-feed-options.css';
+import {
+  COUNTRY_OR_REGION_OPTIONS,
+  FEED_TYPE_OPTIONS,
+  GENRE_OPTIONS,
+  RESULTS_LIMIT_OPTIONS,
+  INPUT_NAMES
+} from 'utils/constants';
 
 const appleMusicFeedOptions = [
   {
     label: 'Country or Region',
-    options: [
-      {
-        label: 'United Kingdom',
-        value: 'gb'
-      },
-      {
-        label: 'United States',
-        value: 'us'
-      }
-    ]
+    options: COUNTRY_OR_REGION_OPTIONS,
+    name: INPUT_NAMES.COUNTRY_OR_REGION
   },
   {
     label: 'Feed Type',
-    options: [
-      {
-        label: 'Coming Soon',
-        value: 'coming-soon'
-      },
-      {
-        label: 'Hot Tracks',
-        value: 'hot-tracks'
-      },
-      {
-        label: 'New Releases',
-        value: 'new-releases'
-      },
-      {
-        label: 'Top Albums',
-        value: 'top-albums'
-      },
-      {
-        label: 'Top Songs',
-        value: 'top-songs'
-      }
-    ]
+    options: FEED_TYPE_OPTIONS,
+    name: INPUT_NAMES.FEED_TYPE
   },
   {
     label: 'Genre',
-    options: [
-      {
-        label: 'All',
-        value: 'all'
-      },
-      {
-        label: 'Country',
-        value: 'country'
-      },
-      {
-        label: 'Heavy Metal',
-        value: 'heavy-metal'
-      }
-    ]
+    options: GENRE_OPTIONS,
+    name: INPUT_NAMES.GENRE
   },
   {
     label: 'Results limit',
-    options: [
-      {
-        label: '10',
-        value: 10
-      },
-      {
-        label: '25',
-        value: 25
-      },
-      {
-        label: '50',
-        value: 50
-      },
-      {
-        label: '100',
-        value: 100
-      }
-    ]
+    options: RESULTS_LIMIT_OPTIONS,
+    name: INPUT_NAMES.RESULTS_LIMIT
   }
 ];
 
-const AppleMusicFeedOptions = ({ className }) => {
+const AppleMusicFeedOptions = ({
+  className,
+  inputs,
+  inputChange
+}) => {
   return (
     <div className={`${className} apple-music-feed-options`}>
       {appleMusicFeedOptions.map(appleMusicFeedOption => (
+        // TODO: conditional options
         <Select
-          key={appleMusicFeedOption.label}
+          key={appleMusicFeedOption.name}
+          name={appleMusicFeedOption.name}
+          value={inputs[appleMusicFeedOption.name]}
+          onChange={inputChange}
           options={appleMusicFeedOption.options} />
       ))}
     </div>
