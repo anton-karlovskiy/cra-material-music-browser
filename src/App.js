@@ -26,7 +26,6 @@ const DEFAULT_OPENED_ALBUM = {
 };
 
 const App = () => {
-  const [albumTiles, setAlbumTiles] = useState([]);
   useEffect(() => {
     (async () => {
       try {
@@ -45,6 +44,7 @@ const App = () => {
       }
     })();
   }, []);
+  const [albumTiles, setAlbumTiles] = useState([]);
   const [openedAlbum, setOpenedAlbum] = useState(DEFAULT_OPENED_ALBUM);
   const colorBackgroundRef = useRef(null);
   const imageBackgroundRef = useRef(null);
