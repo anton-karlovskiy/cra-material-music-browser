@@ -1,55 +1,27 @@
 
 /* MEMO: inspired by https://freefrontend.com/css-select-boxes/ Pure CSS Select */
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #f39c12;
-}
-h1 {
-  margin: 0 0 0.25em;
-}
-/* Reset Select */
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  box-shadow: none;
-  border: 0 !important;
-  background: #2c3e50;
-  background-image: none;
-}
-/* Remove IE arrow */
-select::-ms-expand {
-  display: none;
-}
 /* Custom Select */
 .select {
   position: relative;
   display: inline-flex;
-  width: 20em;
-  height: 3em;
-  line-height: 3;
-  background: #2c3e50;
+  width: 11em;
+  height: 2.25em;
+  line-height: 2;
   overflow: hidden;
   border-radius: .25em;
+  outline: none;
 }
-select {
-  flex: 1;
-  padding: 0 .5em;
-  color: #fff;
-  cursor: pointer;
-}
+
 /* Arrow */
 .select::after {
+  display: flex;
+  align-items: center;
   content: '\25BC';
   position: absolute;
   top: 0;
+  bottom: 0;
   right: 0;
+  font-size: .625rem;
   padding: 0 1em;
   background: #34495e;
   cursor: pointer;
@@ -58,7 +30,29 @@ select {
   -o-transition: .25s all ease;
   transition: .25s all ease;
 }
+
 /* Transition */
 .select:hover::after {
   color: #f39c12;
+}
+
+/* Reset Select */
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #FFFFFF;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  border: 0;
+  background-color: #2c3e50;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
 }
