@@ -11,7 +11,8 @@
 }
 
 .svg-icon-container__button-fix {
-  min-width: unset;
+  min-width: 48px;
+  min-height: 48px;
   height: unset;
   display: inline-flex;
 }

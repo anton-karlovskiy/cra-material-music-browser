@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 import Header from 'components/Header';
 import AnimatedAlbumGridSet from 'containers/AnimatedAlbumGridSet';
+import Error from 'components/Error';
 import './App.css';
 import useForm from 'utils/hooks/use-form';
 import {
@@ -18,6 +19,7 @@ import { PROXY_URL } from 'config';
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [albumTiles, setAlbumTiles] = useState([]);
+  const [error, setError] = useState({});
   
   const submitCallback = () => {
     getRSSFeed();
@@ -40,9 +42,13 @@ const App = () => {
   const getRSSFeed = useCallback(async () => {
     setAlbumTiles([]);
     setLoading(true);
+    setError({});
     try {
       const response =
         await fetch(`${PROXY_URL}/https://rss.itunes.apple.com/api/v1/${inputs[INPUT_NAMES.COUNTRY_OR_REGION]}/apple-music/${inputs[INPUT_NAMES.FEED_TYPE]}/${inputs[INPUT_NAMES.GENRE]}/${inputs[INPUT_NAMES.RESULTS_LIMIT]}/explicit.json`);
+      if (response.status === 404) {
+        throw {message: 'Invalid Settings!'};
+      }
       const json = await response.json();
       const albumTiles = json.feed.results.map(result => ({
         id: result.id,
@@ -53,6 +59,7 @@ const App = () => {
       setAlbumTiles(albumTiles);
     } catch (error) {
       console.log('[App] error => ', error);
+      setError(error);
     }
 
     setLoading(false);
@@ -73,6 +80,7 @@ const App = () => {
         inputChange={inputChangeHandler}
         onSubmit={onSubmitHandler} />
       <main>
+        <Error error={error} />
         {albumTiles.length > 0 && (
           <AnimatedAlbumGridSet albumTiles={albumTiles} />
         )}
