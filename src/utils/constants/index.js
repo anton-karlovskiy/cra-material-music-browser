@@ -1123,54 +1123,20 @@ const FEED_TYPE_OPTIONS = [
   }
 ];
 
-const GENRE_OPTIONS = {
-  [FEED_TYPE_OPTIONS[0].value]: [
-    {
-      label: 'All',
-      value: 'all'
-    }
-  ],
-  [FEED_TYPE_OPTIONS[1].value]: [
-    {
-      label: 'All',
-      value: 'all'
-    },
-    {
-      label: 'Country',
-      value: 'country'
-    },
-    {
-      label: 'Heavy Metal',
-      value: 'heavy-metal'
-    }
-  ],
-  [FEED_TYPE_OPTIONS[2].value]: [
-    {
-      label: 'All',
-      value: 'all'
-    },
-    {
-      label: 'Country',
-      value: 'country'
-    },
-    {
-      label: 'Heavy Metal',
-      value: 'heavy-metal'
-    }
-  ],
-  [FEED_TYPE_OPTIONS[3].value]: [
-    {
-      label: 'All',
-      value: 'all'
-    }
-  ],
-  [FEED_TYPE_OPTIONS[4].value]: [
-    {
-      label: 'All',
-      value: 'all'
-    }
-  ]
-};
+const GENRE_OPTIONS = [
+  {
+    label: 'All',
+    value: 'all'
+  },
+  {
+    label: 'Country',
+    value: 'country'
+  },
+  {
+    label: 'Heavy Metal',
+    value: 'heavy-metal'
+  }
+];
 
 const RESULTS_LIMIT_OPTIONS = [
   {
