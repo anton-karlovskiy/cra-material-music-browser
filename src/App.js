@@ -8,8 +8,8 @@ import useForm from 'utils/hooks/use-form';
 import {
   INPUT_NAMES,
   PROXY_URL,
-  COUNTRY_OR_REGION_OPTIONS,
   FEED_TYPE_OPTIONS,
+  GENRE_OPTIONS,
   RESULTS_LIMIT_OPTIONS
 } from 'utils/constants';
 // MEMO: check itunes country or region codes
@@ -30,9 +30,9 @@ const App = () => {
   } = useForm({
     submitCallback,
     initialInputs: {
-      [INPUT_NAMES.COUNTRY_OR_REGION]: COUNTRY_OR_REGION_OPTIONS[0].value,
+      [INPUT_NAMES.COUNTRY_OR_REGION]: 'us',
       [INPUT_NAMES.FEED_TYPE]: FEED_TYPE_OPTIONS[0].value,
-      [INPUT_NAMES.GENRE]: 'all', // TODO: hardcoded
+      [INPUT_NAMES.GENRE]: GENRE_OPTIONS[0].value,
       [INPUT_NAMES.RESULTS_LIMIT]: RESULTS_LIMIT_OPTIONS[0].value
     }
   });
