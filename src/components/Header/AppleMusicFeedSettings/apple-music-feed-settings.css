@@ -1,5 +1,5 @@
 
-.apple-music-feed-options {
+.apple-music-feed-settings {
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 4px;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 640px) {
-  .apple-music-feed-options {
+  .apple-music-feed-settings {
     grid-template-columns: auto auto;
   }
 }

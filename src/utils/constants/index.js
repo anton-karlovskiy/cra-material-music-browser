@@ -81,30 +81,37 @@ const GENRE_OPTIONS = {
       label: 'Heavy Metal',
       value: 'heavy-metal'
     }
-  ],[FEED_TYPE_OPTIONS[3].value]: [
+  ],
+  [FEED_TYPE_OPTIONS[3].value]: [
     {
       label: 'All',
       value: 'all'
     }
   ],
+  [FEED_TYPE_OPTIONS[4].value]: [
+    {
+      label: 'All',
+      value: 'all'
+    }
+  ]
 };
 
 const RESULTS_LIMIT_OPTIONS = [
   {
     label: '12',
-    value: 12
+    value: '12'
   },
   {
     label: '24',
-    value: 24
+    value: '24'
   },
   {
     label: '60',
-    value: 60
+    value: '60'
   },
   {
     label: '96',
-    value: 96
+    value: '96'
   }
 ];
 

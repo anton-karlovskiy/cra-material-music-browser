@@ -1,8 +1,8 @@
 
-import React from 'react';
+import React, { memo } from 'react';
 
 import ProductLogoTitle from './ProductLogoTitle';
-import AppleMusicFeedOptions from './AppleMusicFeedOptions';
+import AppleMusicFeedSettings from './AppleMusicFeedSettings';
 import SearchIconButton from 'components/UI/IconButtons/SearchIconButton';
 import './header.css';
 
@@ -17,7 +17,7 @@ const Header = ({
       onSubmit={onSubmit}
       className='top-app-bar-inside'>
       <ProductLogoTitle />
-      <AppleMusicFeedOptions
+      <AppleMusicFeedSettings
         loading={loading}
         inputs={inputs}
         inputChange={inputChange}
@@ -29,4 +29,4 @@ const Header = ({
   </header>
 );
 
-export default Header;
+export default memo(Header);
