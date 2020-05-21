@@ -182,6 +182,20 @@ const getItunesCountryOptionsForAppleMusic = async () => {
   return itunesCountryOptionsForAppleMusic;
 };
 
+const getItunesCountryOptions = () => {
+  for (const [countryCode, countryName] of Object.entries(itunesCountries)) {
+    itunesCountryOptionsForAppleMusic = [...itunesCountryOptionsForAppleMusic, {
+      label: countryName,
+      value: countryCode
+    }];
+  }
+
+  console.log('[getItunesCountryOptions] itunesCountryOptionsForAppleMusic => ', JSON.stringify(itunesCountryOptionsForAppleMusic));
+
+  return itunesCountryOptionsForAppleMusic;
+};
+
 export {
-  getItunesCountryOptionsForAppleMusic
+  getItunesCountryOptionsForAppleMusic,
+  getItunesCountryOptions
 };
