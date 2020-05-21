@@ -10,9 +10,6 @@ const INPUT_NAMES = {
   RESULTS_LIMIT: 'results-limit'
 };
 
-// TODO: dig into more
-const PROXY_URL = 'https://cors-anywhere.herokuapp.com';
-
 const COUNTRY_OR_REGION_OPTIONS = [
   {
     label: 'Albania',
@@ -1161,7 +1158,6 @@ export {
   APP_NAME,
   COUNT_OF_TILES_ON_VIEWPORT,
   INPUT_NAMES,
-  PROXY_URL,
   COUNTRY_OR_REGION_OPTIONS,
   FEED_TYPE_OPTIONS,
   GENRE_OPTIONS,

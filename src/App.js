@@ -7,11 +7,11 @@ import './App.css';
 import useForm from 'utils/hooks/use-form';
 import {
   INPUT_NAMES,
-  PROXY_URL,
   FEED_TYPE_OPTIONS,
   GENRE_OPTIONS,
   RESULTS_LIMIT_OPTIONS
 } from 'utils/constants';
+import { PROXY_URL } from 'config';
 // MEMO: check itunes country or region codes
 // import { getItunesCountryOptions } from 'utils/tools';
 
