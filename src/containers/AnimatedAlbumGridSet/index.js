@@ -23,6 +23,8 @@ const DEFAULT_OPENED_ALBUM = {
   event: null
 };
 
+let pageYOffset;
+
 const AnimatedAlbumGridSet = ({ albumTiles }) => {
   const [openedAlbum, setOpenedAlbum] = useState(DEFAULT_OPENED_ALBUM);
   const colorBackgroundRef = useRef(null);
@@ -56,30 +58,33 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
     albumName,
     artistName
   }) => event => {
-    if (id !== openedAlbum.id) {
-      const boundingClientRect = event.target.getBoundingClientRect();
-      setOpenedAlbum({
-        id,
-        color,
-        fabColor,
-        artworkUrl,
-        albumName,
-        artistName,
-        // TODO: tweak for unrendered from element
-        event: {
-          ...event,
-          target: {
-            ...event.target,
-            getBoundingClientRect: () => boundingClientRect
-          }
+    if (id === openedAlbum.id) return;
+
+    const boundingClientRect = event.target.getBoundingClientRect();
+    setOpenedAlbum({
+      id,
+      color,
+      fabColor,
+      artworkUrl,
+      albumName,
+      artistName,
+      // TODO: tweak for unrendered from element
+      event: {
+        ...event,
+        target: {
+          ...event.target,
+          getBoundingClientRect: () => boundingClientRect
         }
-      });
-    }
+      }
+    });
+
+    pageYOffset = window.pageYOffset;
   };
 
   const closeAlbumHandler = () => {
     if (checkAnimationsRunning()) return;
     const callback = () => {
+      window.scrollBy(0, pageYOffset);
       setOpenedAlbum(DEFAULT_OPENED_ALBUM);
     };
 
