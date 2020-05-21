@@ -12,6 +12,8 @@ import {
   FEED_TYPE_OPTIONS,
   RESULTS_LIMIT_OPTIONS
 } from 'utils/constants';
+// MEMO: check itunes country or region codes
+// import { getItunesCountryOptionsForAppleMusic } from 'utils/tools';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -58,9 +60,11 @@ const App = () => {
 
   useEffect(() => {
     getRSSFeed();
+    // MEMO: check itunes country or region codes
+    // getItunesCountryOptionsForAppleMusic();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   return (
     <>
       <Header
