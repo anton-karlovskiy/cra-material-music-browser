@@ -5,6 +5,7 @@ import ColorBackground from './ColorBackground';
 import ImageBackground from './ImageBackground';
 import AlbumCard from './AlbumCard';
 import BackButton from 'components/BackButton';
+import './full-size-page-with-album-card.css';
 
 const FullSizePageWithAlbumCard = ({
   colorBackgroundRef,
@@ -22,7 +23,7 @@ const FullSizePageWithAlbumCard = ({
   } = openedAlbum;
 
   return (
-    <div className='fullsize-page-with-card'>
+    <div className='full-size-page-with-album-card'>
       <BackButton onClick={closeAlbum} />
       <ColorBackground
         ref={colorBackgroundRef}

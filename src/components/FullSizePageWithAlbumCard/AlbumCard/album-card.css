@@ -1,9 +1,9 @@
 
-.fullsize-page-with-card .album-card {
+.full-size-page-with-album-card .album-card {
   /* TODO: double check */
   pointer-events: none;
   position: relative;
-  margin: 250px 275px 0;
+  margin: 14% 16% 0;
   min-height: 700px;
 }
 
@@ -71,7 +71,7 @@
 }
 
 @media (max-width: 1288px) {
-  .fullsize-page-with-card .album-card {
+  .full-size-page-with-album-card .album-card {
     margin: 0;
   }
 }
