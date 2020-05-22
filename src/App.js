@@ -51,6 +51,8 @@ const App = () => {
       const json = await response.json();
       const albumTiles = json.feed.results.map(result => ({
         id: result.id,
+        // TODO: might have to rename albumName to albumOrSongName
+        // TODO: might have to rename relevant components according to above
         albumName: result.name,
         artistName: result.artistName,
         artworkUrl: getNewUrlWithNewArtworkImageRes(result.artworkUrl100, 400)

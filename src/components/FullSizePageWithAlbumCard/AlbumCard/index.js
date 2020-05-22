@@ -34,6 +34,7 @@ const AlbumCard = forwardRef(({
         </div>
         <Suspense fallback='Loading...'>
           <MusicServicesBar
+            albumName={albumName}
             color={color}
             fabColor={fabColor} />
         </Suspense>
