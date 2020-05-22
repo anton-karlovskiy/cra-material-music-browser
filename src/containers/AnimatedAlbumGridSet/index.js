@@ -23,7 +23,7 @@ const DEFAULT_OPENED_ALBUM = {
   event: null
 };
 
-let pageYOffset;
+let scrollY = 0;
 
 const AnimatedAlbumGridSet = ({ albumTiles }) => {
   const [openedAlbum, setOpenedAlbum] = useState(DEFAULT_OPENED_ALBUM);
@@ -49,6 +49,13 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
       });
     }
   }, [openedAlbum.event]);
+
+  useEffect(() => {
+    if (openedAlbum.id === '') {
+      // TODO: smooth scrolling https://css-tricks.com/snippets/jquery/smooth-scrolling/
+      window.scrollTo(0, scrollY);
+    }
+  }, [openedAlbum.id]);
 
   const openAlbumHandler = ({
     id,
@@ -78,20 +85,17 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
       }
     });
 
-    pageYOffset = window.pageYOffset;
+    scrollY = window.scrollY;
+    window.scrollTo(0, 0);
   };
 
   const closeAlbumHandler = () => {
     if (checkAnimationsRunning()) return;
     const callback = () => {
-      window.scrollBy(0, pageYOffset);
       setOpenedAlbum(DEFAULT_OPENED_ALBUM);
     };
 
-    runFadeOutAnimation({
-      node: imageBackgroundRef?.current || colorBackgroundRef?.current,
-      callback
-    });
+    runFadeOutAnimation({node: imageBackgroundRef?.current || colorBackgroundRef?.current});
 
     runTransformAnimation({
       transformFrom: 'none',
