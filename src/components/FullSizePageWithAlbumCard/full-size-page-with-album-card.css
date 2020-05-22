@@ -1,3 +1,4 @@
 
-/* TODO: not defined yet */
-/* .full-size-page-with-album-card {} */
+.full-size-page-with-album-card {
+  overflow: hidden;
+}
