@@ -30,12 +30,6 @@
   transition: .25s all ease;
 }
 
-/* TODO: block for disabled effect for now */
-/* Transition */
-/* .select:hover::after {
-  color: #f39c12;
-} */
-
 /* Reset Select */
 .select select {
   flex: 1;

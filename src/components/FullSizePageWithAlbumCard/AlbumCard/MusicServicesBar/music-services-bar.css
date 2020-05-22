@@ -1,5 +1,6 @@
 
 .music-services-bar {
+  min-height: 104px;
   position: relative;
   padding: 4px 0;
 }

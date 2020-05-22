@@ -1,12 +1,14 @@
 
-import React, { forwardRef } from 'react';
+import React, { forwardRef, lazy, Suspense } from 'react';
 
 import FavoriteStarIconButton from 'components/UI/IconButtons/FavoriteStarIconButton';
-// TODO: lazy loading
-// TODO: rename music service bar
-import MusicServicesBar from './MusicServicesBar';
+// TODO: double check necessity
 import AlbumList from './AlbumList';
 import './album-card.css';
+
+const MusicServicesBar = lazy(
+  () => import(/* webpackPrefetch: true, webpackChunkName: 'music-service-bar' */ './MusicServicesBar')
+);
 
 const AlbumCard = forwardRef(({
   color,
@@ -30,9 +32,11 @@ const AlbumCard = forwardRef(({
           <span className='album-name'>{albumName}</span>
           <span className='artist-name'>{artistName}</span>
         </div>
-        <MusicServicesBar
-          color={color}
-          fabColor={fabColor} />
+        <Suspense fallback='Loading...'>
+          <MusicServicesBar
+            color={color}
+            fabColor={fabColor} />
+        </Suspense>
       </div>
     </div>
     <AlbumList />
