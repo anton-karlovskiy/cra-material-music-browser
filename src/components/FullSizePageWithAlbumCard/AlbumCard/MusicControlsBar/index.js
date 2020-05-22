@@ -2,10 +2,53 @@
 import React from 'react';
 
 import PlayListAddIconButton from 'components/UI/IconButtons/PlayListAddIconButton';
-import FastRewindIconButton from 'components/UI/IconButtons/FastRewindIconButton';
-import PlayIconButton from 'components/UI/IconButtons/PlayIconButton';
-import FastForwardIconButton from 'components/UI/IconButtons/FastForwardIconButton';
+import ServiceSearchLink from './ServiceSearchLink';
 import './music-controls-bar.css';
+
+const searchLinks = [
+  {
+    title: 'YouTube',
+    searchLinkPrefix: 'https://www.youtube.com/results?search_query=',
+    logoImagePath: '/assets/images/service-logos/youtube.svg',
+    width: 50,
+    height: 50
+  },
+  {
+    title: 'Spotify',
+    searchLinkPrefix: 'https://open.spotify.com/search/',
+    logoImagePath: '/assets/images/service-logos/spotify.svg',
+    width: 40,
+    height: 50
+  },
+  {
+    title: 'Apple Music',
+    searchLinkPrefix: 'https://music.apple.com/us/search?term=',
+    logoImagePath: '/assets/images/service-logos/apple-music.svg',
+    width: 50,
+    height: 50
+  },
+  {
+    title: 'iHeartRadio',
+    searchLinkPrefix: '',
+    logoImagePath: '/assets/images/service-logos/iheartradio.png',
+    width: 45,
+    height: 50
+  },
+  {
+    title: 'Pandora',
+    searchLinkPrefix: 'https://www.pandora.com/search/',
+    logoImagePath: '/assets/images/service-logos/pandora.png',
+    width: 28,
+    height: 50
+  },
+  {
+    title: 'Play Music',
+    searchLinkPrefix: 'https://play.google.com/music/listen?u=0#/sr/',
+    logoImagePath: '/assets/images/service-logos/google-play-music.svg',
+    width: 32,
+    height: 50
+  },
+];
 
 const MusicControlsBar = ({
   color,
@@ -16,9 +59,14 @@ const MusicControlsBar = ({
       <PlayListAddIconButton />
     </div>
     <div className='music-controls'>
-      <FastRewindIconButton withHoverEffect />
-      <PlayIconButton withHoverEffect />
-      <FastForwardIconButton withHoverEffect />
+      {searchLinks.map(searchLink => (
+        <ServiceSearchLink
+          key={searchLink.title}
+          width={searchLink.width}
+          height={searchLink.height}
+          logoImagePath={searchLink.logoImagePath}
+          title={searchLink.title} />
+      ))}
     </div>
   </div>
 );

@@ -5,16 +5,14 @@
 }
 
 .music-controls {
+  /* ray test touch < */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 360px;
+  justify-content: space-evenly;
+  max-width: 560px;
+  /* ray test touch > */
   margin: 0 auto;
   padding: 0 16px;
-}
-
-.music-controls svg {
-  fill: #FFFFFF
 }
 
 .play-list-add {

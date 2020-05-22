@@ -2,6 +2,8 @@
 import React, { forwardRef } from 'react';
 
 import FavoriteStarIconButton from 'components/UI/IconButtons/FavoriteStarIconButton';
+// TODO: lazy loading
+// TODO: rename music service bar
 import MusicControlsBar from './MusicControlsBar';
 import AlbumList from './AlbumList';
 import './album-card.css';

@@ -1,0 +1,15 @@
+
+.service-search-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+
+.service-search-link .title {
+  font-size: 0.875rem;
+  line-height: 1.57;
+  letter-spacing: 0.00714em;
+  white-space: nowrap;
+  margin: 4px 0;
+}
