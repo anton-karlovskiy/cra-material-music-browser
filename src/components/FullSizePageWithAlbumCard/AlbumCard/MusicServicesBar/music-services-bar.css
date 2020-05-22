@@ -1,16 +1,13 @@
 
-.music-controls-bar {
+.music-services-bar {
   position: relative;
   padding: 4px 0;
 }
 
-.music-controls {
-  /* ray test touch < */
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  max-width: 560px;
-  /* ray test touch > */
+.music-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 16px;
 }
@@ -40,7 +37,7 @@
     right: 12px;
   }
 
-  .music-controls {
-    padding: 0 48px;
+  .music-services {
+    max-width: 90%;
   }
 }

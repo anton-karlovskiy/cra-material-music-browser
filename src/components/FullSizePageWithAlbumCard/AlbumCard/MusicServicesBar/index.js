@@ -3,7 +3,7 @@ import React from 'react';
 
 import PlayListAddIconButton from 'components/UI/IconButtons/PlayListAddIconButton';
 import ServiceSearchLink from './ServiceSearchLink';
-import './music-controls-bar.css';
+import './music-services-bar.css';
 
 const searchLinks = [
   {
@@ -50,15 +50,15 @@ const searchLinks = [
   },
 ];
 
-const MusicControlsBar = ({
+const MusicServicesBar = ({
   color,
   fabColor
 }) => (
-  <div className={`music-controls-bar ${color}-100`}>
+  <div className={`music-services-bar ${color}-100`}>
     <div className={`play-list-add ${fabColor}`}>
       <PlayListAddIconButton />
     </div>
-    <div className='music-controls'>
+    <div className='music-services'>
       {searchLinks.map(searchLink => (
         <ServiceSearchLink
           key={searchLink.title}
@@ -71,4 +71,4 @@ const MusicControlsBar = ({
   </div>
 );
 
-export default MusicControlsBar;
+export default MusicServicesBar;

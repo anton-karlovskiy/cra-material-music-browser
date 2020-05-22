@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 import FavoriteStarIconButton from 'components/UI/IconButtons/FavoriteStarIconButton';
 // TODO: lazy loading
 // TODO: rename music service bar
-import MusicControlsBar from './MusicControlsBar';
+import MusicServicesBar from './MusicServicesBar';
 import AlbumList from './AlbumList';
 import './album-card.css';
 
@@ -30,7 +30,7 @@ const AlbumCard = forwardRef(({
           <span className='album-name'>{albumName}</span>
           <span className='artist-name'>{artistName}</span>
         </div>
-        <MusicControlsBar
+        <MusicServicesBar
           color={color}
           fabColor={fabColor} />
       </div>
