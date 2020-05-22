@@ -11,6 +11,16 @@ const splitIntoSubArray = (array, count) => {
   return newArray;
 };
 
+const getNewUrlWithNewArtworkImageRes = (url, resolution = 200) => {
+  const urlParts = url.split('/');
+  const imageResPart = urlParts[urlParts.length - 1];
+  const newImageResPart = `${resolution}x${resolution}bb.png`;
+  const newUrl = url.replace(imageResPart, newImageResPart);
+
+  return newUrl;
+};
+
 export {
-  splitIntoSubArray
+  splitIntoSubArray,
+  getNewUrlWithNewArtworkImageRes
 };

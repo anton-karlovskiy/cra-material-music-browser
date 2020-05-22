@@ -12,6 +12,7 @@ import {
   GENRE_OPTIONS,
   RESULTS_LIMIT_OPTIONS
 } from 'utils/constants';
+import { getNewUrlWithNewArtworkImageRes } from 'utils/helpers';
 import { PROXY_URL } from 'config';
 // MEMO: check itunes country or region codes
 // import { getItunesCountryOptions } from 'utils/tools';
@@ -54,7 +55,7 @@ const App = () => {
         id: result.id,
         albumName: result.name,
         artistName: result.artistName,
-        artworkUrl: result.artworkUrl100
+        artworkUrl: getNewUrlWithNewArtworkImageRes(result.artworkUrl100, 400)
       }));
       setAlbumTiles(albumTiles);
     } catch (error) {
