@@ -1,7 +1,5 @@
 
 .full-size-page-with-album-card .album-card {
-  /* TODO: double check */
-  pointer-events: none;
   position: relative;
   margin: 14% 16% 0;
   min-height: 700px;
@@ -9,7 +7,6 @@
 
 .album-card .container {
   display: flex;
-  user-select: none;
 }
 
 .album-art {

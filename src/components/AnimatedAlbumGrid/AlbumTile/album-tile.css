@@ -18,8 +18,8 @@
   background-position: 50%;
 }
 
+/* MEMO: event can be obtained in album tile scope */
 .album-tile * {
-  /* TODO: double check */
   pointer-events: none;
 }
 
