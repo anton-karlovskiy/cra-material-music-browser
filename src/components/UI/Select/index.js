@@ -4,11 +4,16 @@ import React from 'react';
 import './select.css';
 
 const Select = ({
+  label,
   options = [],
+  id = 'select',
   ...rest
 }) => (
   <div className='select'>
-    <select {...rest}>
+    {label && <label for={id}>{label}</label>}
+    <select
+      id={id}
+      {...rest}>
       {options.map(option => (
         <option
           key={option.value}

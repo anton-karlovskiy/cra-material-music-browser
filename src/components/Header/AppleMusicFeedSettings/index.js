@@ -2,6 +2,7 @@
 import React, { memo } from 'react';
 
 import Select from 'components/UI/Select';
+import AutocompleteSelect from 'components/UI/AutocompleteSelect';
 import './apple-music-feed-settings.css';
 import {
   COUNTRY_OR_REGION_OPTIONS,
@@ -12,27 +13,45 @@ import {
 } from 'utils/constants';
 
 const MemoizedSelect = memo(props => <Select {...props} />);
+const MemoizedAutocompleteSelect = memo(props => <AutocompleteSelect {...props} />);
+
+const ConditionalSelect = ({
+  autocomplete,
+  ...rest
+}) => (
+  <>
+    {autocomplete ? (
+      <MemoizedAutocompleteSelect {...rest} />
+    ) : (
+      <MemoizedSelect {...rest} />
+    )}
+  </>
+);
 
 const appleMusicFeedSettings = [
   {
     label: 'Country or Region',
     options: COUNTRY_OR_REGION_OPTIONS,
-    name: INPUT_NAMES.COUNTRY_OR_REGION
+    name: INPUT_NAMES.COUNTRY_OR_REGION,
+    autocomplete: true
   },
   {
     label: 'Feed Type',
     options: FEED_TYPE_OPTIONS,
-    name: INPUT_NAMES.FEED_TYPE
+    name: INPUT_NAMES.FEED_TYPE,
+    autocomplete: false
   },
   {
     label: 'Genre',
     options: GENRE_OPTIONS,
-    name: INPUT_NAMES.GENRE
+    name: INPUT_NAMES.GENRE,
+    autocomplete: false
   },
   {
     label: 'Results limit',
     options: RESULTS_LIMIT_OPTIONS,
-    name: INPUT_NAMES.RESULTS_LIMIT
+    name: INPUT_NAMES.RESULTS_LIMIT,
+    autocomplete: false
   }
 ];
 
@@ -45,9 +64,10 @@ const AppleMusicFeedSettings = ({
 }) => (
   <div className={`${className} apple-music-feed-settings`}>
     {appleMusicFeedSettings.map(appleMusicFeedSetting => (
-      <MemoizedSelect
-        disabled={disabled || loading}
+      <ConditionalSelect
         key={appleMusicFeedSetting.name}
+        autocomplete={appleMusicFeedSetting.autocomplete}
+        disabled={disabled || loading}
         name={appleMusicFeedSetting.name}
         value={inputs[appleMusicFeedSetting.name]}
         onChange={inputChange}

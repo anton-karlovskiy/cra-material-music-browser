@@ -47,6 +47,7 @@ const App = () => {
       const response =
         await fetch(`${PROXY_URL}/https://rss.itunes.apple.com/api/v1/${inputs[INPUT_NAMES.COUNTRY_OR_REGION]}/apple-music/${inputs[INPUT_NAMES.FEED_TYPE]}/${inputs[INPUT_NAMES.GENRE]}/${inputs[INPUT_NAMES.RESULTS_LIMIT]}/explicit.json`);
       if (response.status === 404) {
+        // TODO: fix warning
         throw {message: 'Invalid Settings!'};
       }
       const json = await response.json();
