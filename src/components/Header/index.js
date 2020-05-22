@@ -13,6 +13,7 @@ const Header = ({
   onSubmit
 }) => (
   <header className='top-app-bar'>
+    {/* TODO: validation might be required */}
     <form
       onSubmit={onSubmit}
       className='top-app-bar-inside'>
