@@ -16,6 +16,7 @@
 /* MEMO: tile coloring */
 .blue-100 {
   background-color: #c6dafc;
+  color: #000000;
 }
 
 .blue-300 {
@@ -61,6 +62,7 @@
 
 .yellow-100 {
   background-color: #fce8b2;
+  color: #000000;
 }
 
 .yellow-300 {

@@ -1,4 +1,8 @@
 
+a.service-search-link {
+  color: unset;
+}
+
 .service-search-link {
   display: flex;
   flex-direction: column;
