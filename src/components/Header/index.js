@@ -25,6 +25,7 @@ const Header = ({
         className='top-app-bar__options-section' />
       <SearchIconButton
         type='submit'
+        withHoverEffect
         loading={loading} />
     </form>
   </header>

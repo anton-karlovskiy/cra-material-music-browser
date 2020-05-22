@@ -21,7 +21,9 @@ const AlbumCard = forwardRef(({
         style={{backgroundImage: `url("${artworkUrl}")`}}
         className='album-art' />
       <div className='album-details'>
-        <FavoriteStarIconButton className='favorite-star' />
+        <FavoriteStarIconButton
+          className='favorite-star'
+          withHoverEffect />
         <div className='album-text'>
           <span className='album-name'>{albumName}</span>
           <span className='artist-name'>{artistName}</span>

@@ -3,11 +3,15 @@ import React from 'react';
 
 import IconButtonWrapper from 'hoc/IconButtonWrapper';
 
-const PlayListAddIconButton = props => (
-  <IconButtonWrapper {...props}>
+const PlayListAddIconButton = ({
+  width,
+  height,
+  ...rest
+}) => (
+  <IconButtonWrapper {...rest}>
     <svg
-      width='24'
-      height='24'
+      width={width || '20'}
+      height={height || '14'}
       viewBox='0 0 20 14'
       version='1.1'
       xmlns='http://www.w3.org/2000/svg'>

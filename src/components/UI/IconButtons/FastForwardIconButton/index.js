@@ -3,11 +3,15 @@ import React from 'react';
 
 import IconButtonWrapper from 'hoc/IconButtonWrapper';
 
-const FastForwardIconButton = props => (
-  <IconButtonWrapper {...props}>
+const FastForwardIconButton = ({
+  width,
+  height,
+  ...rest
+}) => (
+  <IconButtonWrapper {...rest}>
     <svg
-      width='24'
-      height='24'
+      width={width || '20'}
+      height={height || '20'}
       version='1.1'
       id='Capa_1'
       xmlns='http://www.w3.org/2000/svg'

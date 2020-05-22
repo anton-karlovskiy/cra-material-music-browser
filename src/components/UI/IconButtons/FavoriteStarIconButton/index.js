@@ -3,12 +3,16 @@ import React from 'react';
 
 import IconButtonWrapper from 'hoc/IconButtonWrapper';
 
-const FavoriteStarIconButton = props => (
-  <IconButtonWrapper {...props}>
+const FavoriteStarIconButton = ({
+  width,
+  height,
+  ...rest
+}) => (
+  <IconButtonWrapper {...rest}>
     <svg
       id='Layer_1'
-      width='16'
-      height='16'
+      width={width || '16'}
+      height={height || '16'}
       data-name='Layer 1'
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 25 25'>

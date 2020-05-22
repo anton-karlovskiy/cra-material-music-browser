@@ -16,9 +16,9 @@ const MusicControlsBar = ({
       <PlayListAddIconButton />
     </div>
     <div className='music-controls'>
-      <FastRewindIconButton />
-      <PlayIconButton />
-      <FastForwardIconButton />
+      <FastRewindIconButton withHoverEffect />
+      <PlayIconButton withHoverEffect />
+      <FastForwardIconButton withHoverEffect />
     </div>
   </div>
 );

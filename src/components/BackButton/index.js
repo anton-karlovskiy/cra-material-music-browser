@@ -9,6 +9,7 @@ const BackButton = props => (
     {...props}
     width={28}
     height={28}
+    withHoverEffect
     className='back-button' />
 );
 
