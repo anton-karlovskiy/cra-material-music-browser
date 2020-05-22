@@ -14,8 +14,6 @@ import {
 } from 'utils/constants';
 import { getNewUrlWithNewArtworkImageRes } from 'utils/helpers';
 import { PROXY_URL } from 'config';
-// MEMO: check itunes country or region codes
-// import { getItunesCountryOptions } from 'utils/tools';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -68,8 +66,6 @@ const App = () => {
 
   useEffect(() => {
     getRSSFeed();
-    // MEMO: check itunes country or region codes
-    // getItunesCountryOptions();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

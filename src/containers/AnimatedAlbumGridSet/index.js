@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 
-import AnimatedAlbumGrid from 'components/UI/AnimatedAlbumGrid';
-import FullSizePageWithAlbumCard from 'components/UI/FullSizePageWithAlbumCard';
+import AnimatedAlbumGrid from 'components/AnimatedAlbumGrid';
+import FullSizePageWithAlbumCard from 'components/FullSizePageWithAlbumCard';
 import { splitIntoSubArray } from 'utils/helpers';
 import { COUNT_OF_TILES_ON_VIEWPORT } from 'utils/constants';
 import {
