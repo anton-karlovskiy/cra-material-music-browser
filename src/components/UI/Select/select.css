@@ -37,7 +37,7 @@
 } */
 
 /* Reset Select */
-select {
+.select select {
   flex: 1;
   padding: 0 .5em;
   color: #FFFFFF;
@@ -53,10 +53,10 @@ select {
 }
 
 /* Remove IE arrow */
-select::-ms-expand {
+.select select::-ms-expand {
   display: none;
 }
 
-select:disabled {
+.select select:disabled {
   cursor: default;
 }

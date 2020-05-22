@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 
+import TextField from 'components/UI/TextField';
 import './autocomplete-select.css';
 
 const AutocompleteSelect = ({
@@ -31,7 +32,8 @@ const AutocompleteSelect = ({
   return (
     <div className='select'>
       {label && <label for={id}>{label}</label>}
-      <input
+      <TextField
+        autoComplete='off'
         onBlur={onBlurHandler}
         type='text'
         id={id}
