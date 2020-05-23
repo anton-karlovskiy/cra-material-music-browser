@@ -121,11 +121,10 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
           closeAlbum={closeAlbumHandler}
           openedAlbum={openedAlbum} />
       </div>
-      <div
-        className='neon-animated-pages'
-        style={{display: fullPageOpened ? 'none' : 'block'}}>
+      <div style={{display: fullPageOpened ? 'none' : 'block'}}>
         {albumTilesSet.map((albumTiles, index) => (
           <AnimatedAlbumGrid
+            className='neon-animated-pages'
             key={index}
             openAlbum={openAlbumHandler}
             albumTiles={albumTiles} />

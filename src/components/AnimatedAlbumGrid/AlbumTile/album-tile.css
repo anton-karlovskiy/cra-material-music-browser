@@ -70,18 +70,21 @@
   line-height: 19px;
 }
 
-@media (min-width: 1288px) {
-  /* There's enough vert/horz space for artwork to use contain */
+/* TODO: no good effect so blocked for now */
+/* @media (min-width: 1288px) {
+  There's enough vert/horz space for artwork to use contain
   .album-tile {
-    background-size: cover;
+    background-size: contain;
     background-position: initial;
   }
 
-  /* For tiles that still don't work well on contain, revert to cover */
+  For tiles that still don't work well on contain, revert to cover
   .album-tile:nth-of-type(1), .album-tile:nth-of-type(7), .album-tile:nth-of-type(6) {
+    background-size: cover;
     background-position: 50%;
   }
-}
+} */
+
 @media (max-width: 640px) {
   .album-tile,
   .album-tile:nth-of-type(n) {
