@@ -31,8 +31,6 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
   const colorBackgroundRef = useRef(null);
   const imageBackgroundRef = useRef(null);
   const albumCardRef = useRef(null);
-  // ray test touch <
-  // ray test touch >
 
   useEffect(() => {
     if (openedAlbum.event) {
@@ -94,6 +92,7 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
 
   const closeAlbumHandler = () => {
     if (checkAnimationsRunning()) return;
+
     const callback = () => {
       setOpenedAlbum(DEFAULT_OPENED_ALBUM);
     };
@@ -112,13 +111,16 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
 
   return (
     <>
-      <FullSizePageWithAlbumCard
-        style={{display: fullPageOpened ? 'block' : 'none'}}
-        colorBackgroundRef={colorBackgroundRef}
-        imageBackgroundRef={imageBackgroundRef}
-        albumCardRef={albumCardRef}
-        closeAlbum={closeAlbumHandler}
-        openedAlbum={openedAlbum} />
+      <div
+        className='neon-animated-pages hide-overflow'
+        style={{display: fullPageOpened ? 'block' : 'none'}}>
+        <FullSizePageWithAlbumCard
+          colorBackgroundRef={colorBackgroundRef}
+          imageBackgroundRef={imageBackgroundRef}
+          albumCardRef={albumCardRef}
+          closeAlbum={closeAlbumHandler}
+          openedAlbum={openedAlbum} />
+      </div>
       <div
         className='neon-animated-pages'
         style={{display: fullPageOpened ? 'none' : 'block'}}>

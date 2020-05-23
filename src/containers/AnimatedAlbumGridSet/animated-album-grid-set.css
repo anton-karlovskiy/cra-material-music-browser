@@ -10,4 +10,9 @@
     /* MEMO: should be matched with header height */
     height: calc(100vh - 72px);
   }
+
+  .neon-animated-pages.hide-overflow {
+    overflow: hidden;
+  }
 }
+
