@@ -12,6 +12,7 @@ import {
   runTransformAnimation,
   checkAnimationsRunning
 } from 'utils/animations';
+import './animated-album-grid-set.css';
 
 const DEFAULT_OPENED_ALBUM = {
   id: '',
@@ -30,6 +31,8 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
   const colorBackgroundRef = useRef(null);
   const imageBackgroundRef = useRef(null);
   const albumCardRef = useRef(null);
+  // ray test touch <
+  // ray test touch >
 
   useEffect(() => {
     if (openedAlbum.event) {
@@ -109,15 +112,16 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
 
   return (
     <>
-      <div style={{display: fullPageOpened ? 'block' : 'none'}}>
-        <FullSizePageWithAlbumCard
-          colorBackgroundRef={colorBackgroundRef}
-          imageBackgroundRef={imageBackgroundRef}
-          albumCardRef={albumCardRef}
-          closeAlbum={closeAlbumHandler}
-          openedAlbum={openedAlbum} />
-      </div>
-      <div style={{display: fullPageOpened ? 'none' : 'block'}}>
+      <FullSizePageWithAlbumCard
+        style={{display: fullPageOpened ? 'block' : 'none'}}
+        colorBackgroundRef={colorBackgroundRef}
+        imageBackgroundRef={imageBackgroundRef}
+        albumCardRef={albumCardRef}
+        closeAlbum={closeAlbumHandler}
+        openedAlbum={openedAlbum} />
+      <div
+        className='neon-animated-pages'
+        style={{display: fullPageOpened ? 'none' : 'block'}}>
         {albumTilesSet.map((albumTiles, index) => (
           <AnimatedAlbumGrid
             key={index}

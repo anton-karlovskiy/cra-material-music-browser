@@ -60,7 +60,7 @@ const AnimatedAlbumGrid = ({
   albumTiles,
   openAlbum
 }) => (
-  <div className='neon-animated-pages'>
+  <>
     {albumTiles.map((albumTile, index) => {
       const albumColor = staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].color;
       const albumFabColor = staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].fabColor;;
@@ -82,7 +82,7 @@ const AnimatedAlbumGrid = ({
           artistName={albumTile.artistName} />
       );
     })}
-  </div>
+  </>
 );
 
 export default AnimatedAlbumGrid;

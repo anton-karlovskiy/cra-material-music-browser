@@ -12,6 +12,7 @@
   background-color: var(--palette-grey-900);
   transition: box-shadow 200ms linear;
   box-shadow: 0 2px 4px rgba(0,0,0,.5);
+  /* MEMO: must be greater than ripple z-index */
   z-index: 11000;
 }
 

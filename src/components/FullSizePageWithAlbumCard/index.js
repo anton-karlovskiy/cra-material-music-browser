@@ -12,7 +12,9 @@ const FullSizePageWithAlbumCard = ({
   imageBackgroundRef,
   albumCardRef,
   openedAlbum,
-  closeAlbum
+  closeAlbum,
+  className,
+  ...rest
 }) => {
   const {
     color,
@@ -23,7 +25,9 @@ const FullSizePageWithAlbumCard = ({
   } = openedAlbum;
 
   return (
-    <div className='full-size-page-with-album-card'>
+    <div
+      {...rest}
+      className={`full-size-page-with-album-card ${className}`}>
       <BackButton onClick={closeAlbum} />
       <ColorBackground
         ref={colorBackgroundRef}

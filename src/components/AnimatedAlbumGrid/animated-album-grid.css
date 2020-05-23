@@ -1,17 +1,4 @@
 
-.neon-animated-pages {
-  /* MEMO: should be matched with header height */
-  height: calc(100vh - 152px);
-  position: relative;
-}
-
-@media screen and (min-width: 640px) {
-  .neon-animated-pages {
-    /* MEMO: should be matched with header height */
-    height: calc(100vh - 72px);
-  }
-}
-
 /* TODO: double check naming */
 /* MEMO: tile coloring */
 .blue-100 {

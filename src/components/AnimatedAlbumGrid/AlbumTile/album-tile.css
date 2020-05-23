@@ -73,13 +73,12 @@
 @media (min-width: 1288px) {
   /* There's enough vert/horz space for artwork to use contain */
   .album-tile {
-    background-size: contain;
+    background-size: cover;
     background-position: initial;
   }
 
   /* For tiles that still don't work well on contain, revert to cover */
   .album-tile:nth-of-type(1), .album-tile:nth-of-type(7), .album-tile:nth-of-type(6) {
-    background-size: cover;
     background-position: 50%;
   }
 }
