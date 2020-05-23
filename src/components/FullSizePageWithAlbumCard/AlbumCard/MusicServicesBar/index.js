@@ -28,13 +28,6 @@ const searchLinks = [
     height: 50
   },
   {
-    title: 'iHeartRadio',
-    queryPrefix: '',
-    logoImagePath: '/assets/images/service-logos/iheartradio.png',
-    width: 45,
-    height: 50
-  },
-  {
     title: 'Pandora',
     queryPrefix: 'https://www.pandora.com/search/',
     logoImagePath: '/assets/images/service-logos/pandora.png',
