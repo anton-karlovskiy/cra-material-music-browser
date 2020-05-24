@@ -15,6 +15,7 @@ const FullSizePageWithAlbumCard = ({
   closeAlbum
 }) => {
   const {
+    id,
     color,
     fabColor,
     artworkUrl,
@@ -32,6 +33,7 @@ const FullSizePageWithAlbumCard = ({
         ref={imageBackgroundRef}
         url={artworkUrl} />
       <AlbumCard
+        id={id}
         ref={albumCardRef}
         color={color}
         fabColor={fabColor}
