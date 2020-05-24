@@ -41,9 +41,7 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
         },
         from: openedAlbum.event?.target,
         to: colorBackgroundRef?.current,
-        // ray test touch <
         scrollY: cachedScrollY
-        // ray test touch >
       });
 
       runHeroAnimation({
