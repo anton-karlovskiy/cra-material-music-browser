@@ -5,22 +5,22 @@
   justify-content: center;
 }
 
-.apple-music-feed-settings .selects {
+.apple-music-feed-settings .setting-selects {
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 4px;
 }
 
-.apple-music-feed-settings .switch {
-  margin-left: 8px;
+.apple-music-feed-settings .allow-explicit-setting {
+  margin-left: 16px;
 }
 
 @media screen and (max-width: 640px) {
-  .apple-music-feed-settings .selects {
+  .apple-music-feed-settings .setting-selects {
     grid-template-columns: auto auto;
   }
 
-  .apple-music-feed-settings .switch {
+  .apple-music-feed-settings .allow-explicit-setting {
     display: none;
   }
 }

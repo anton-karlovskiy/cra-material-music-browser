@@ -7,7 +7,8 @@ const INPUT_NAMES = {
   COUNTRY_OR_REGION: 'country-or-region',
   FEED_TYPE: 'feed-type',
   GENRE: 'genre',
-  RESULTS_LIMIT: 'results-limit'
+  RESULTS_LIMIT: 'results-limit',
+  ALLOW_EXPLICIT: 'allow-explicit'
 };
 
 const COUNTRY_OR_REGION_OPTIONS = [

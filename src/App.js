@@ -34,7 +34,8 @@ const App = () => {
       [INPUT_NAMES.COUNTRY_OR_REGION]: 'us',
       [INPUT_NAMES.FEED_TYPE]: FEED_TYPE_OPTIONS[0].value,
       [INPUT_NAMES.GENRE]: GENRE_OPTIONS[0].value,
-      [INPUT_NAMES.RESULTS_LIMIT]: RESULTS_LIMIT_OPTIONS[0].value
+      [INPUT_NAMES.RESULTS_LIMIT]: RESULTS_LIMIT_OPTIONS[0].value,
+      [INPUT_NAMES.ALLOW_EXPLICIT]: true
     }
   });
 
@@ -44,7 +45,7 @@ const App = () => {
     setError({});
     try {
       const response =
-        await fetch(`${PROXY_URL}/https://rss.itunes.apple.com/api/v1/${inputs[INPUT_NAMES.COUNTRY_OR_REGION]}/apple-music/${inputs[INPUT_NAMES.FEED_TYPE]}/${inputs[INPUT_NAMES.GENRE]}/${inputs[INPUT_NAMES.RESULTS_LIMIT]}/explicit.json`);
+        await fetch(`${PROXY_URL}/https://rss.itunes.apple.com/api/v1/${inputs[INPUT_NAMES.COUNTRY_OR_REGION]}/apple-music/${inputs[INPUT_NAMES.FEED_TYPE]}/${inputs[INPUT_NAMES.GENRE]}/${inputs[INPUT_NAMES.RESULTS_LIMIT]}/${inputs[INPUT_NAMES.ALLOW_EXPLICIT] ? 'explicit.json' : 'non-explicit.json'}`);
       if (response.status === 404) {
         throw new Error('Invalid Settings!');
       }

@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+.switch-container {
+  display: flex;
+  align-items: center;
+}
+
+.switch-container .label {
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
 .switch {
   position: relative;
   display: inline-block;

@@ -21,19 +21,23 @@ import './switch.css';
 const Switch = ({
   className,
   name,
+  label = '',
   checked = false,
   onChange = () => {},
   ...rest
 }) => (
-  <label className={`switch ${className}`}>
-    <input
-      type='checkbox'
-      name={name}
-      checked={checked}
-      onChange={onChange}
-      {...rest} />
-    <span className='slider round'></span>
-  </label>
+  <div className={`switch-container ${className}`}>
+    <label className='label'>{label}</label>
+    <label className='switch'>
+      <input
+        type='checkbox'
+        name={name}
+        checked={checked}
+        onChange={onChange}
+        {...rest} />
+      <span className='slider round'></span>
+    </label>
+  </div>
 );
 
 export default Switch;

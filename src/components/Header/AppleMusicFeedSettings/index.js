@@ -15,8 +15,9 @@ import {
 
 const MemoizedSelect = memo(props => <Select {...props} />);
 const MemoizedAutocompleteSelect = memo(props => <AutocompleteSelect {...props} />);
+const AppleMusicFeedSettingSwitch = memo(props => <Switch {...props} />);
 
-const ConditionalSelect = ({
+const AppleMusicFeedSettingSelect = ({
   autocomplete,
   ...rest
 }) => (
@@ -64,9 +65,9 @@ const AppleMusicFeedSettings = ({
   inputChange
 }) => (
   <div className={`${className} apple-music-feed-settings`}>
-    <div className='selects'>
+    <div className='setting-selects'>
       {appleMusicFeedSettings.map(appleMusicFeedSetting => (
-        <ConditionalSelect
+        <AppleMusicFeedSettingSelect
           key={appleMusicFeedSetting.name}
           autocomplete={appleMusicFeedSetting.autocomplete}
           disabled={disabled || loading}
@@ -76,7 +77,12 @@ const AppleMusicFeedSettings = ({
           options={appleMusicFeedSetting.options} />
       ))}
     </div>
-    <Switch className='switch' />
+    <AppleMusicFeedSettingSwitch
+      className='allow-explicit-setting'
+      label='Allow Explicit'
+      name={INPUT_NAMES.ALLOW_EXPLICIT}
+      checked={inputs[INPUT_NAMES.ALLOW_EXPLICIT]}
+      onChange={inputChange} />
   </div>
 );
 
