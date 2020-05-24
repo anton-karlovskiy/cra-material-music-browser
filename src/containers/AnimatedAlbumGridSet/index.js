@@ -24,7 +24,7 @@ const DEFAULT_OPENED_ALBUM = {
   event: null
 };
 
-let scrollY = 0;
+let cachedScrollY = 0;
 
 const AnimatedAlbumGridSet = ({ albumTiles }) => {
   const [openedAlbum, setOpenedAlbum] = useState(DEFAULT_OPENED_ALBUM);
@@ -40,7 +40,10 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
           y: openedAlbum.event.y || openedAlbum.event.pageY
         },
         from: openedAlbum.event?.target,
-        to: colorBackgroundRef?.current
+        to: colorBackgroundRef?.current,
+        // ray test touch <
+        scrollY: cachedScrollY
+        // ray test touch >
       });
 
       runHeroAnimation({
@@ -54,7 +57,7 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
   useEffect(() => {
     if (openedAlbum.id === '') {
       // TODO: smooth scrolling https://css-tricks.com/snippets/jquery/smooth-scrolling/
-      window.scrollTo(0, scrollY);
+      window.scrollTo(0, cachedScrollY);
     }
   }, [openedAlbum.id]);
 
@@ -86,7 +89,7 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
       }
     });
 
-    scrollY = window.scrollY;
+    cachedScrollY = window.scrollY;
     window.scrollTo(0, 0);
   };
 

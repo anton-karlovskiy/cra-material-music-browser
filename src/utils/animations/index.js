@@ -65,7 +65,10 @@ const getAdjustedBoundingClientReact = el => {
 const runRippleAnimation = ({
   gesture = null,
   from,
-  to
+  to,
+  // ray test touch <
+  scrollY
+  // ray test touch >
 }) => {
   let translateX, translateY;
   const fromRect = from.getBoundingClientRect();
@@ -73,12 +76,19 @@ const runRippleAnimation = ({
   
   if (gesture) {
     translateX = gesture.x - (toRect.left + (toRect.width / 2));
-    translateY = gesture.y - (toRect.top + (toRect.height / 2));
+    // ray test touch <
+    // translateY = gesture.y - (toRect.top + (toRect.height / 2));
+    translateY = gesture.y - (toRect.top + scrollY + (toRect.height / 2));
+    // ray test touch >
   } else {
     translateX = (fromRect.left + (fromRect.width / 2)) -
       (toRect.left + (toRect.width / 2));
+    // ray test touch <
+    // translateY = (fromRect.top + (fromRect.height / 2)) -
+    //   (toRect.top + (toRect.height / 2));
     translateY = (fromRect.top + (fromRect.height / 2)) -
-      (toRect.top + (toRect.height / 2));
+      (toRect.top + scrollY + (toRect.height / 2));
+    // ray test touch >
   }
 
   const translate = `translate(${translateX}px, ${translateY}px)`;
