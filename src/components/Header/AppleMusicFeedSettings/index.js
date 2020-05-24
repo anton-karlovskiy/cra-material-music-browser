@@ -80,6 +80,7 @@ const AppleMusicFeedSettings = ({
     <AppleMusicFeedSettingSwitch
       className='allow-explicit-setting'
       label='Allow Explicit'
+      disabled={disabled || loading}
       name={INPUT_NAMES.ALLOW_EXPLICIT}
       checked={inputs[INPUT_NAMES.ALLOW_EXPLICIT]}
       onChange={inputChange} />
