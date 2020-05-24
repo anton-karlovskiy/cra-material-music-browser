@@ -3,6 +3,7 @@ import React, { memo } from 'react';
 
 import Select from 'components/UI/Select';
 import AutocompleteSelect from 'components/UI/AutocompleteSelect';
+import Switch from 'components/UI/Switch';
 import './apple-music-feed-settings.css';
 import {
   COUNTRY_OR_REGION_OPTIONS,
@@ -63,16 +64,19 @@ const AppleMusicFeedSettings = ({
   inputChange
 }) => (
   <div className={`${className} apple-music-feed-settings`}>
-    {appleMusicFeedSettings.map(appleMusicFeedSetting => (
-      <ConditionalSelect
-        key={appleMusicFeedSetting.name}
-        autocomplete={appleMusicFeedSetting.autocomplete}
-        disabled={disabled || loading}
-        name={appleMusicFeedSetting.name}
-        value={inputs[appleMusicFeedSetting.name]}
-        onChange={inputChange}
-        options={appleMusicFeedSetting.options} />
-    ))}
+    <div className='selects'>
+      {appleMusicFeedSettings.map(appleMusicFeedSetting => (
+        <ConditionalSelect
+          key={appleMusicFeedSetting.name}
+          autocomplete={appleMusicFeedSetting.autocomplete}
+          disabled={disabled || loading}
+          name={appleMusicFeedSetting.name}
+          value={inputs[appleMusicFeedSetting.name]}
+          onChange={inputChange}
+          options={appleMusicFeedSetting.options} />
+      ))}
+    </div>
+    <Switch className='switch' />
   </div>
 );
 

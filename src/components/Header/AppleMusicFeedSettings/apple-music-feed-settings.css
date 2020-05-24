@@ -1,13 +1,26 @@
 
 .apple-music-feed-settings {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 4px;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
+.apple-music-feed-settings .selects {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 4px;
+}
+
+.apple-music-feed-settings .switch {
+  margin-left: 8px;
+}
+
 @media screen and (max-width: 640px) {
-  .apple-music-feed-settings {
+  .apple-music-feed-settings .selects {
     grid-template-columns: auto auto;
+  }
+
+  .apple-music-feed-settings .switch {
+    display: none;
   }
 }
