@@ -7,7 +7,7 @@ import { getNewUrlWithNewArtworkImageRes } from 'utils/helpers';
 const ImageBackground = forwardRef(({ url }, ref) => (
   <div
     ref={ref}
-    style={{backgroundImage: `url("${getNewUrlWithNewArtworkImageRes(url, 800)}")`}}
+    style={{backgroundImage: `url("${getNewUrlWithNewArtworkImageRes(url, 600)}")`}}
     className='image-background fade' />
 ));
 

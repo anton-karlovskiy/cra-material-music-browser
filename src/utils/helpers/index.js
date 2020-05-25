@@ -14,7 +14,7 @@ const splitIntoSubArray = (array, count) => {
 const getNewUrlWithNewArtworkImageRes = (url, resolution = 200) => {
   const urlParts = url.split('/');
   const imageResPart = urlParts[urlParts.length - 1];
-  const newImageResPart = `${resolution}x${resolution}bb.png`;
+  const newImageResPart = `${resolution}x${resolution}bb.jpg`;
   const newUrl = url.replace(imageResPart, newImageResPart);
 
   return newUrl;
