@@ -28,9 +28,7 @@ const MaterialMusicSelect = ({
       {...rest}
       onChange={onChangeHandler}
       className='select-search'
-      options={adaptedOptions}
-      search
-      placeholder='Select your country' />
+      options={adaptedOptions} />
   );
 };
 

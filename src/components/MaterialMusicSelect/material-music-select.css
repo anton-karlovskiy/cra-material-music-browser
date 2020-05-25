@@ -3,7 +3,7 @@
  * Main wrapper
  */
  .select-search {
-  width: 300px;
+  min-width: 11em;
   position: relative;
   font-family: 'Nunito Sans', sans-serif;
   box-sizing: border-box;
@@ -40,7 +40,7 @@
   display: block;
   height: 36px;
   width: 100%;
-  padding: 0 16px;
+  padding: 0 40px 0 16px;
   color: var(--palette-text-primary);
   background-color: #2c3e50;
   border: 1px solid transparent;
@@ -189,7 +189,7 @@
 .select-search:not(.select-search--multiple) .select-search__select {
   position: absolute;
   z-index: 2;
-  top: 44px;
+  top: 40px;
   right: 0;
   left: 0;
   border-radius: 3px;

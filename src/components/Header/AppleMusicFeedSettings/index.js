@@ -1,7 +1,6 @@
 
 import React, { memo } from 'react';
 
-import Select from 'components/UI/Select';
 import MaterialMusicSelect from 'components/MaterialMusicSelect';
 import Switch from 'components/UI/Switch';
 import './apple-music-feed-settings.css';
@@ -13,47 +12,33 @@ import {
   INPUT_NAMES
 } from 'utils/constants';
 
-const MemoizedSelect = memo(props => <Select {...props} />);
-const MemoizedAutocompleteSelect = memo(props => <MaterialMusicSelect {...props} />);
-const AppleMusicFeedSettingSwitch = memo(props => <Switch {...props} />);
-
-const AppleMusicFeedSettingSelect = ({
-  autocomplete,
-  ...rest
-}) => (
-  <>
-    {autocomplete ? (
-      <MemoizedAutocompleteSelect {...rest} />
-    ) : (
-      <MemoizedSelect {...rest} />
-    )}
-  </>
-);
+const MemoizedMaterialMusicSelect = memo(props => <MaterialMusicSelect {...props} />);
+const MemoizedSwitch = memo(props => <Switch {...props} />);
 
 const appleMusicFeedSettings = [
   {
     label: 'Country or Region',
     options: COUNTRY_OR_REGION_OPTIONS,
     name: INPUT_NAMES.COUNTRY_OR_REGION,
-    autocomplete: true
+    search: true
   },
   {
     label: 'Feed Type',
     options: FEED_TYPE_OPTIONS,
     name: INPUT_NAMES.FEED_TYPE,
-    autocomplete: false
+    search: false
   },
   {
     label: 'Genre',
     options: GENRE_OPTIONS,
     name: INPUT_NAMES.GENRE,
-    autocomplete: false
+    search: false
   },
   {
     label: 'Results limit',
     options: RESULTS_LIMIT_OPTIONS,
     name: INPUT_NAMES.RESULTS_LIMIT,
-    autocomplete: false
+    search: false
   }
 ];
 
@@ -67,17 +52,18 @@ const AppleMusicFeedSettings = ({
   <div className={`${className} apple-music-feed-settings`}>
     <div className='setting-selects'>
       {appleMusicFeedSettings.map(appleMusicFeedSetting => (
-        <AppleMusicFeedSettingSelect
+        <MemoizedMaterialMusicSelect
           key={appleMusicFeedSetting.name}
-          autocomplete={appleMusicFeedSetting.autocomplete}
           disabled={disabled || loading}
+          search={appleMusicFeedSetting.search}
           name={appleMusicFeedSetting.name}
           value={inputs[appleMusicFeedSetting.name]}
+          placeholder={appleMusicFeedSetting.label}
           onChange={inputChange}
           options={appleMusicFeedSetting.options} />
       ))}
     </div>
-    <AppleMusicFeedSettingSwitch
+    <MemoizedSwitch
       className='allow-explicit-setting'
       label='Allow Explicit'
       disabled={disabled || loading}
