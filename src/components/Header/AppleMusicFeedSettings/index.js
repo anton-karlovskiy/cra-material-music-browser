@@ -2,7 +2,7 @@
 import React, { memo } from 'react';
 
 import Select from 'components/UI/Select';
-import AutocompleteSelect from 'components/UI/AutocompleteSelect';
+import MaterialMusicSelect from 'components/MaterialMusicSelect';
 import Switch from 'components/UI/Switch';
 import './apple-music-feed-settings.css';
 import {
@@ -14,7 +14,7 @@ import {
 } from 'utils/constants';
 
 const MemoizedSelect = memo(props => <Select {...props} />);
-const MemoizedAutocompleteSelect = memo(props => <AutocompleteSelect {...props} />);
+const MemoizedAutocompleteSelect = memo(props => <MaterialMusicSelect {...props} />);
 const AppleMusicFeedSettingSwitch = memo(props => <Switch {...props} />);
 
 const AppleMusicFeedSettingSelect = ({

@@ -65,10 +65,11 @@ menu {
   padding: 0;
 }
 
-li, li p {
+/* TODO: block for now */
+/* li, li p {
   margin: 8px 0;
   padding: 0;
-}
+} */
 
 body {
   display: flex;
@@ -103,7 +104,8 @@ p {
   text-align: justify;
 }
 
-button {
+/* TODO: block for now */
+/* button {
   color: var(--palette-text-primary);
   cursor: pointer;
   outline: 0;
@@ -113,7 +115,6 @@ button {
   user-select: none;
   transition: background-color .2s, box-shadow .2s;
   
-  /* truncate string with ellipsis */
   min-width: 64px;
   white-space: nowrap;
   overflow: hidden;
@@ -123,7 +124,7 @@ button {
   letter-spacing: var(--typography-button-letter-spacing);
   font-weight: var(--typography-font-weight-bold);
   text-transform: uppercase;
-}
+} */
 
 .font-weight-bold {
   font-weight: var(--typography-font-weight-bold);

@@ -20,7 +20,7 @@ const IconButtonWrapper = ({
     disabled={disabled || loading}
     id='icon-button'
     aria-label='icon-button'
-    className={`${withHoverEffect ? 'svg-icon-container' : 'svg-icon-container__no-hover-effect'} svg-icon-container__button-fix ${className}`}>
+    className={`${withHoverEffect ? 'svg-icon-container' : 'svg-icon-container__no-hover-effect'} ${className}`}>
     {loading ? (
       <Suspense fallback=''>
         <LoadingSpinner

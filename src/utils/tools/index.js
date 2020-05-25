@@ -54,7 +54,7 @@ const itunesCountries = {
   'gm': 'Gambia',
   'de': 'Germany',
   'gh': 'Ghana',
-  'gb': 'Great Britain',
+  'gb': 'United Kingdom',
   'gr': 'Greece',
   'gd': 'Grenada',
   'gt': 'Guatemala',

@@ -1,5 +1,6 @@
 
 .svg-icon-container, .svg-icon-container__no-hover-effect {
+  color: var(--palette-text-primary);
   position: relative;
   cursor: pointer;
   padding: 12px;
@@ -11,12 +12,6 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-}
-
-.svg-icon-container__button-fix {
-  min-width: 48px;
-  min-height: 48px;
-  height: unset;
 }
 
 .svg-icon-container:hover:after {

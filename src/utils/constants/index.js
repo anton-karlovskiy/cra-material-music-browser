@@ -225,7 +225,7 @@ const COUNTRY_OR_REGION_OPTIONS = [
     value: 'gh'
   },
   {
-    label: 'Great Britain',
+    label: 'United Kingdom',
     value: 'gb'
   },
   {
@@ -805,7 +805,7 @@ const COUNTRY_OR_REGION_OPTIONS = [
 //     value: 'gh'
 //   },
 //   {
-//     label: 'Great Britain',
+//     label: 'United Kingdom',
 //     value: 'gb'
 //   },
 //   {
