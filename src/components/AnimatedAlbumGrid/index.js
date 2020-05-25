@@ -64,7 +64,7 @@ const AnimatedAlbumGrid = ({
   <div className={className}>
     {albumTiles.map((albumTile, index) => {
       const albumColor = staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].color;
-      const albumFabColor = staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].fabColor;;
+      const albumFabColor = staticAlbumTiles[index % COUNT_OF_TILES_ON_VIEWPORT].fabColor;
 
       return (
         <AlbumTile

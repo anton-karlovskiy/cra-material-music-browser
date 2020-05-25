@@ -4,7 +4,8 @@
   /* MEMO: should be matched with header height */
   top: calc(152px + 16px);
   left: 12px;
-  z-index: 100;
+  /* MEMO: must be greater than ripple z-index */
+  z-index: 11000;
   fill: var(--palette-common-black);
 }
 

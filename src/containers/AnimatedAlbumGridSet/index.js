@@ -13,6 +13,7 @@ import {
   checkAnimationsRunning
 } from 'utils/animations';
 import './animated-album-grid-set.css';
+import useMedia from 'utils/hooks/use-media';
 
 const DEFAULT_OPENED_ALBUM = {
   id: '',
@@ -58,6 +59,9 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
       window.scrollTo(0, cachedScrollY);
     }
   }, [openedAlbum.id]);
+
+  // MEMO: 640px must match CSS value
+  const isSmallViewport = useMedia('(max-width: 640px)');
 
   const openAlbumHandler = ({
     id,
@@ -107,7 +111,8 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
       callback
     });
   };
-  const albumTilesSet = useMemo(() => splitIntoSubArray(albumTiles, COUNT_OF_TILES_ON_VIEWPORT), [albumTiles]);
+
+  const albumTilesSet = useMemo(() => splitIntoSubArray(albumTiles, isSmallViewport ? COUNT_OF_TILES_ON_VIEWPORT / 2 : COUNT_OF_TILES_ON_VIEWPORT), [albumTiles, isSmallViewport]);
   const fullPageOpened = openedAlbum.id !== '';
 
   return (
