@@ -27,19 +27,22 @@ const appleMusicFeedSettings = [
     label: 'Feed Type',
     options: FEED_TYPE_OPTIONS,
     name: INPUT_NAMES.FEED_TYPE,
-    search: false
+    search: false,
+    className: 'feed-type-select'
   },
   {
     label: 'Genre',
     options: GENRE_OPTIONS,
     name: INPUT_NAMES.GENRE,
-    search: false
+    search: false,
+    className: 'genre-select'
   },
   {
     label: 'Results limit',
     options: RESULTS_LIMIT_OPTIONS,
     name: INPUT_NAMES.RESULTS_LIMIT,
-    search: false
+    search: false,
+    className: 'results-limit-select'
   }
 ];
 
