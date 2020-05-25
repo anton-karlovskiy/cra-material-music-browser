@@ -68,6 +68,7 @@ const AlbumCard = forwardRef(({
           <Suspense fallback='Loading...'>
             <MusicServicesBar
               albumName={albumName}
+              artistName={artistName}
               color={color}
               fabColor={fabColor} />
           </Suspense>

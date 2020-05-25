@@ -45,6 +45,7 @@ const searchLinks = [
 
 const MusicServicesBar = ({
   albumName,
+  artistName = '',
   color,
   fabColor
 }) => (
@@ -55,7 +56,7 @@ const MusicServicesBar = ({
     <div className='music-services'>
       {searchLinks.map(searchLink => (
         <ServiceSearchLink
-          href={`${searchLink.queryPrefix}${albumName}`}
+          href={`${searchLink.queryPrefix}${albumName} ${artistName}`}
           key={searchLink.title}
           width={searchLink.width}
           height={searchLink.height}
