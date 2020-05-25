@@ -20,7 +20,8 @@ const appleMusicFeedSettings = [
     label: 'Country or Region',
     options: COUNTRY_OR_REGION_OPTIONS,
     name: INPUT_NAMES.COUNTRY_OR_REGION,
-    search: true
+    search: true,
+    className: 'country-or-region-select'
   },
   {
     label: 'Feed Type',
@@ -54,6 +55,7 @@ const AppleMusicFeedSettings = ({
       {appleMusicFeedSettings.map(appleMusicFeedSetting => (
         <MemoizedMaterialMusicSelect
           key={appleMusicFeedSetting.name}
+          className={appleMusicFeedSetting.className || ''}
           disabled={disabled || loading}
           search={appleMusicFeedSetting.search}
           name={appleMusicFeedSetting.name}

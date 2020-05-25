@@ -7,7 +7,7 @@
 
 .apple-music-feed-settings .setting-selects {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto 160px 140px 140px;
   grid-gap: 4px;
 }
 
@@ -22,5 +22,11 @@
 
   .apple-music-feed-settings .allow-explicit-setting {
     display: none;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .country-or-region-select {
+    min-width: 240px;
   }
 }

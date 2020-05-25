@@ -4,6 +4,7 @@ import SelectSearch from 'react-select-search';
 import './material-music-select.css';
 
 const MaterialMusicSelect = ({
+  className,
   options,
   onChange,
   name,
@@ -27,7 +28,7 @@ const MaterialMusicSelect = ({
     <SelectSearch
       {...rest}
       onChange={onChangeHandler}
-      className='select-search'
+      className={`select-search ${className}`}
       options={adaptedOptions} />
   );
 };
