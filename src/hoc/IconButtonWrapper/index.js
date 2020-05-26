@@ -13,6 +13,8 @@ const IconButtonWrapper = ({
   loading,
   disabled,
   withHoverEffect,
+  loadingSpinnerWidth,
+  loadingSpinnerHeight,
   ...rest
 }) => (
   <button
@@ -24,9 +26,9 @@ const IconButtonWrapper = ({
     {loading ? (
       <Suspense fallback=''>
         <LoadingSpinner
-          width={2}
-          height={2}
-          borderWidth={.3}
+          width={loadingSpinnerWidth}
+          height={loadingSpinnerHeight}
+          borderWidth={.4}
           margin={0} />
       </Suspense>
     ) : (

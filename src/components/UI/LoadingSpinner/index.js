@@ -4,15 +4,15 @@ import React from 'react';
 import './loading-spinner.css';
 
 const LoadingSpinner = ({
-  width = 10,
-  height = 10,
+  width = 24,
+  height = 24,
   margin = 60,
   borderWidth = 1.1
 }) => (
   <div
     style={{
-      width: `${width}em`,
-      height: `${height}em`,
+      width: `${width}px`,
+      height: `${height}px`,
       margin: `${margin}px auto`,
       borderWidth: `${borderWidth}em`
     }}

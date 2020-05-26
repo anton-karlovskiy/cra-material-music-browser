@@ -21,19 +21,23 @@ const Header = ({
       onSubmit={onSubmit}
       className='top-app-bar-inside'>
       <ProductLogoTitle />
-      <FavoritesButton
-        type='button'
-        favoritesOpen={favoritesOpen}
-        onClick={toggleFavorites} />
       <AppleMusicFeedSettings
         loading={loading}
         inputs={inputs}
         inputChange={inputChange}
         className='top-app-bar__options-section' />
-      <SearchIconButton
-        type='submit'
-        withHoverEffect
-        loading={loading} />
+      <div className='top-app-bar__actions-section'>
+        <FavoritesButton
+          type='button'
+          favoritesOpen={favoritesOpen}
+          onClick={toggleFavorites} />
+        <SearchIconButton
+          type='submit'
+          width={32}
+          height={32}
+          withHoverEffect
+          loading={loading} />
+      </div>
     </form>
   </header>
 );
