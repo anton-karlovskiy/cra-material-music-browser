@@ -98,7 +98,7 @@
 
 .album-tile .favorite-star {
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 2px;
+  top: 2px;
   pointer-events: auto;
 }

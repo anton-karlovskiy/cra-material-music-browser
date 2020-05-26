@@ -3,6 +3,7 @@ import React, { memo } from 'react';
 
 import ProductLogoTitle from './ProductLogoTitle';
 import AppleMusicFeedSettings from './AppleMusicFeedSettings';
+import FavoritesButton from './FavoritesButton';
 import SearchIconButton from 'components/UI/IconButtons/SearchIconButton';
 import './header.css';
 
@@ -10,7 +11,9 @@ const Header = ({
   loading,
   inputs,
   inputChange,
-  onSubmit
+  onSubmit,
+  favoritesOpen,
+  toggleFavorites
 }) => (
   <header className='top-app-bar'>
     {/* TODO: validation might be required */}
@@ -18,6 +21,10 @@ const Header = ({
       onSubmit={onSubmit}
       className='top-app-bar-inside'>
       <ProductLogoTitle />
+      <FavoritesButton
+        type='button'
+        favoritesOpen={favoritesOpen}
+        onClick={toggleFavorites} />
       <AppleMusicFeedSettings
         loading={loading}
         inputs={inputs}

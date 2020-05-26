@@ -18,14 +18,11 @@ import { loadState, saveState } from 'utils/helpers/local-storage';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
-  const [albumTiles, setAlbumTiles] = useState([]);
   const [error, setError] = useState({});
-  // ray test touch <
-  const [favoritesOpen, setFavoritesOpen] = useState(false);
-  // ray test touch >
-
+  const [albumTiles, setAlbumTiles] = useState([]);
   const { favorites: initialFavorites = [] } = loadState() || {};
   const [favorites, setFavorites] = useState(initialFavorites);
+  const [favoritesOpen, setFavoritesOpen] = useState(false);
 
   const addToFavoritesHandler = ({
     id,
@@ -91,6 +88,7 @@ const App = () => {
     setAlbumTiles([]);
     setLoading(true);
     setError({});
+    setFavoritesOpen(false);
     try {
       const response =
         await fetch(`${PROXY_URL}/https://rss.itunes.apple.com/api/v1/${inputs[INPUT_NAMES.COUNTRY_OR_REGION]}/apple-music/${inputs[INPUT_NAMES.FEED_TYPE]}/${inputs[INPUT_NAMES.GENRE]}/${inputs[INPUT_NAMES.RESULTS_LIMIT]}/${inputs[INPUT_NAMES.ALLOW_EXPLICIT] ? 'explicit.json' : 'non-explicit.json'}`);
@@ -120,40 +118,30 @@ const App = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // ray test touch <
-  const openFavoritesHandler = () => {
-    setFavoritesOpen(true);
+  const toggleFavoritesHandler = () => {
+    setFavoritesOpen(prevFavoritesOpen => !prevFavoritesOpen);
   };
-  // ray test touch >
+
+  const targetAlbumTiles = favoritesOpen ? favorites : albumTiles;
 
   return (
     <>
       <Header
         loading={loading}
-        // ray test touch <
-        openFavorites={openFavoritesHandler}
-        // ray test touch >
+        favoritesOpen={favoritesOpen}
+        toggleFavorites={toggleFavoritesHandler}
         inputs={inputs}
         inputChange={inputChangeHandler}
         onSubmit={onSubmitHandler} />
       <main>
-        {/* ray test touch < */}
-        {favoritesOpen ? (
-          <></>
-        ) : (
-          <>
-            <ErrorAnnotation error={error} />
-            {albumTiles.length > 0 && (
-              <AnimatedAlbumGridSet
-                checkFavorite={checkFavoriteHandler}
-                addToFavorites={addToFavoritesHandler}
-                removeFromFavorites={removeFromFavoritesHandler}
-                albumTiles={albumTiles} />
-            )}
-          </>
+        {favoritesOpen && <ErrorAnnotation error={error} />}
+        {targetAlbumTiles.length > 0 && (
+          <AnimatedAlbumGridSet
+            checkFavorite={checkFavoriteHandler}
+            addToFavorites={addToFavoritesHandler}
+            removeFromFavorites={removeFromFavoritesHandler}
+            albumTiles={targetAlbumTiles} />
         )}
-        {/* ray test touch > */}
-        
       </main>
     </>
   );
