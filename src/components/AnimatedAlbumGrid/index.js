@@ -15,11 +15,11 @@ const staticAlbumTiles = [
     color: 'red'
   },
   {
-    fabColor: 'ellie-blue',
+    fabColor: 'jackson-300',
     color: 'purple'
   },
   {
-    fabColor: 'green-300',
+    fabColor: 'jackson-300',
     color: 'vivid'
   },
   {

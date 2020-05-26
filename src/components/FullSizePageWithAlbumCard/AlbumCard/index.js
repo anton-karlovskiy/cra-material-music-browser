@@ -20,41 +20,47 @@ const AlbumCard = forwardRef(({
   removeFromFavorites,
   color,
   fabColor
-}, ref) => (
-  <div
-    ref={ref}
-    className={`album-card ${color}-300`}>
-    <div className='container'>
-      <div
-        style={{backgroundImage: `url("${artworkUrl}")`}}
-        className='album-art' />
-      <div className='album-details'>
-        <FavoriteStarToggleButton
-          selected={checkFavorite(id)}
-          addToFavorites={addToFavorites({
-            id,
-            artworkUrl,
-            albumName,
-            artistName
-          })}
-          removeFromFavorites={removeFromFavorites(id)}
-          className='favorite-star'
-          withHoverEffect />
-        <div className='album-text'>
-          <span className='album-name'>{albumName}</span>
-          <span className='artist-name'>{artistName}</span>
+}, ref) => {
+  const favoriteButton = (
+    <FavoriteStarToggleButton
+      selected={checkFavorite(id)}
+      addToFavorites={addToFavorites({
+        id,
+        artworkUrl,
+        albumName,
+        artistName
+      })}
+      removeFromFavorites={removeFromFavorites(id)}
+      className='favorite-star'
+      withHoverEffect />
+  );
+
+  return (
+    <div
+      ref={ref}
+      className={`album-card ${color}-300`}>
+      <div className='container'>
+        <div
+          style={{backgroundImage: `url("${artworkUrl}")`}}
+          className='album-art' />
+        <div className='album-details'>
+          <div className='album-text'>
+            <span className='album-name'>{albumName}</span>
+            <span className='artist-name'>{artistName}</span>
+          </div>
+          <Suspense fallback='Loading...'>
+            <MusicServicesBar
+              favoriteButton={favoriteButton}
+              albumName={albumName}
+              artistName={artistName}
+              color={color}
+              fabColor={fabColor} />
+          </Suspense>
         </div>
-        <Suspense fallback='Loading...'>
-          <MusicServicesBar
-            albumName={albumName}
-            artistName={artistName}
-            color={color}
-            fabColor={fabColor} />
-        </Suspense>
       </div>
+      <AlbumList />
     </div>
-    <AlbumList />
-  </div>
-));
+  );
+});
 
 export default AlbumCard;

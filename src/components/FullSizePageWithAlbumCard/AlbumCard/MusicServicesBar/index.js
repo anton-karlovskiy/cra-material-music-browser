@@ -1,7 +1,6 @@
 
 import React from 'react';
 
-import PlayListAddIconButton from 'components/UI/IconButtons/PlayListAddIconButton';
 import ServiceSearchLink from './ServiceSearchLink';
 import './music-services-bar.css';
 
@@ -73,14 +72,15 @@ const getSearchQuery = ({ queryPrefix, albumName, artistName, serviceType }) => 
 };
 
 const MusicServicesBar = ({
+  favoriteButton,
   albumName,
   artistName = '',
   color,
   fabColor
 }) => (
   <div className={`music-services-bar ${color}-100`}>
-    <div className={`play-list-add ${fabColor}`}>
-      <PlayListAddIconButton />
+    <div className={`favorite-button-container ${fabColor}`}>
+      {favoriteButton}
     </div>
     <div className='music-services'>
       {searchLinks.map(searchLink => (

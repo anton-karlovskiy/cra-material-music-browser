@@ -13,7 +13,7 @@
   padding: 0 16px;
 }
 
-.play-list-add {
+.favorite-button-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,12 +27,12 @@
   border-radius: 50%;
 }
 
-.play-list-add:hover {
+.favorite-button-container:hover {
   cursor: pointer;
 }
 
 @media (max-width: 640px) {
-  .play-list-add {
+  .favorite-button-container {
     width: 48px;
     height: 48px;
     right: 12px;

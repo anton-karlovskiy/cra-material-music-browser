@@ -45,12 +45,6 @@
   position: relative;
 }
 
-.album-details .favorite-star {
-  position: absolute;
-  right: 12px;
-  top: 12px;
-}
-
 .album-details .album-text {
   flex-grow: 1;
   text-align: left;
