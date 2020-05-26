@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
 import Header from 'components/Header';
 import AnimatedAlbumGridSet from 'containers/AnimatedAlbumGridSet';
@@ -14,11 +14,59 @@ import {
 } from 'utils/constants';
 import { getNewUrlWithNewArtworkImageRes } from 'utils/helpers';
 import { PROXY_URL } from 'config';
+import { loadState, saveState } from 'utils/helpers/local-storage';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [albumTiles, setAlbumTiles] = useState([]);
   const [error, setError] = useState({});
+  // ray test touch <
+  const [favoritesOpen, setFavoritesOpen] = useState(false);
+  // ray test touch >
+
+  const { favorites: initialFavorites = [] } = loadState() || {};
+  const [favorites, setFavorites] = useState(initialFavorites);
+
+  const addToFavoritesHandler = ({
+    id,
+    artworkUrl,
+    albumName,
+    artistName
+  }) => () => {
+    setFavorites(prevFavorites => {
+      const nextFavorites = prevFavorites.find(prevFavorite => id === prevFavorite.id)
+        ? prevFavorites
+        : [
+          ...prevFavorites,
+          {
+            id,
+            artworkUrl,
+            albumName,
+            artistName
+          }
+        ];
+
+      saveState({favorites: nextFavorites});
+
+      return nextFavorites;
+    });
+  };
+
+  const removeFromFavoritesHandler = id => () => {
+    setFavorites(prevFavorites => {
+      const nextFavorites = prevFavorites.filter(prevFavorite => prevFavorite.id !== id);
+
+      saveState({favorites: nextFavorites});
+
+      return nextFavorites;
+    });
+  };
+
+  const checkFavoriteHandler = useCallback(id => {
+    const isFavorite = !!(favorites.find(favorite => favorite.id === id));
+
+    return isFavorite;
+  }, [favorites]);
   
   const submitCallback = () => {
     getRSSFeed();
@@ -72,18 +120,40 @@ const App = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // ray test touch <
+  const openFavoritesHandler = () => {
+    setFavoritesOpen(true);
+  };
+  // ray test touch >
+
   return (
     <>
       <Header
         loading={loading}
+        // ray test touch <
+        openFavorites={openFavoritesHandler}
+        // ray test touch >
         inputs={inputs}
         inputChange={inputChangeHandler}
         onSubmit={onSubmitHandler} />
       <main>
-        <ErrorAnnotation error={error} />
-        {albumTiles.length > 0 && (
-          <AnimatedAlbumGridSet albumTiles={albumTiles} />
+        {/* ray test touch < */}
+        {favoritesOpen ? (
+          <></>
+        ) : (
+          <>
+            <ErrorAnnotation error={error} />
+            {albumTiles.length > 0 && (
+              <AnimatedAlbumGridSet
+                checkFavorite={checkFavoriteHandler}
+                addToFavorites={addToFavoritesHandler}
+                removeFromFavorites={removeFromFavoritesHandler}
+                albumTiles={albumTiles} />
+            )}
+          </>
         )}
+        {/* ray test touch > */}
+        
       </main>
     </>
   );

@@ -57,6 +57,11 @@ const staticAlbumTiles = [
 ];
 
 const AnimatedAlbumGrid = ({
+  // ray test touch <
+  // checkFavorite,
+  // addToFavorites,
+  // removeFromFavorites,
+  // ray test touch >
   albumTiles,
   openAlbum,
   className

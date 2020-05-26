@@ -11,16 +11,19 @@ const FullSizePageWithAlbumCard = ({
   colorBackgroundRef,
   imageBackgroundRef,
   albumCardRef,
-  openedAlbum,
-  closeAlbum
+  closeAlbum,
+  checkFavorite,
+  addToFavorites,
+  removeFromFavorites,
+  openedAlbum
 }) => {
   const {
     id,
-    color,
-    fabColor,
-    artworkUrl,
     albumName,
-    artistName
+    artistName,
+    artworkUrl,
+    color,
+    fabColor
   } = openedAlbum;
 
   return (
@@ -33,13 +36,16 @@ const FullSizePageWithAlbumCard = ({
         ref={imageBackgroundRef}
         url={artworkUrl} />
       <AlbumCard
-        id={id}
         ref={albumCardRef}
-        color={color}
-        fabColor={fabColor}
-        artworkUrl={artworkUrl}
+        id={id}
         albumName={albumName}
-        artistName={artistName} />
+        artistName={artistName}
+        artworkUrl={artworkUrl}
+        checkFavorite={checkFavorite}
+        addToFavorites={addToFavorites}
+        removeFromFavorites={removeFromFavorites}
+        color={color}
+        fabColor={fabColor} />
     </div>
   );
 };

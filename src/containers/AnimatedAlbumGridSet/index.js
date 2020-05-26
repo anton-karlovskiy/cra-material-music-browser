@@ -17,17 +17,22 @@ import useMedia from 'utils/hooks/use-media';
 
 const DEFAULT_OPENED_ALBUM = {
   id: '',
-  color: '',
-  fabColor: '',
-  artworkUrl: '',
   albumName: '',
   artistName: '',
+  artworkUrl: '',
+  color: '',
+  fabColor: '',
   event: null
 };
 
 let cachedScrollY = 0;
 
-const AnimatedAlbumGridSet = ({ albumTiles }) => {
+const AnimatedAlbumGridSet = ({
+  albumTiles,
+  checkFavorite,
+  addToFavorites,
+  removeFromFavorites
+}) => {
   const [openedAlbum, setOpenedAlbum] = useState(DEFAULT_OPENED_ALBUM);
   const colorBackgroundRef = useRef(null);
   const imageBackgroundRef = useRef(null);
@@ -125,6 +130,9 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
           imageBackgroundRef={imageBackgroundRef}
           albumCardRef={albumCardRef}
           closeAlbum={closeAlbumHandler}
+          checkFavorite={checkFavorite}
+          addToFavorites={addToFavorites}
+          removeFromFavorites={removeFromFavorites}
           openedAlbum={openedAlbum} />
       </div>
       <div style={{display: fullPageOpened ? 'none' : 'block'}}>
@@ -133,6 +141,11 @@ const AnimatedAlbumGridSet = ({ albumTiles }) => {
             className='neon-animated-pages'
             key={index}
             openAlbum={openAlbumHandler}
+            // ray test touch <
+            checkFavorite={checkFavorite}
+            addToFavorites={addToFavorites}
+            removeFromFavorites={removeFromFavorites}
+            // ray test touch >
             albumTiles={albumTiles} />
         ))}
       </div>
