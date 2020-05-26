@@ -2,6 +2,7 @@
 import React from 'react';
 
 import IconButtonWrapper from 'hoc/IconButtonWrapper';
+import './favorite-star-toggle-button.css';
 
 const FavoriteStarToggleButton = ({
   selected = false,
@@ -9,14 +10,17 @@ const FavoriteStarToggleButton = ({
   removeFromFavorites,
   width,
   height,
+  className,
   ...rest
 }) => {
-  const onClickHandler = () => {
+  const onClickHandler = event => {
+    event.stopPropagation();
     selected ? removeFromFavorites() : addToFavorites();
   };
 
   return (
     <IconButtonWrapper
+      className={`favorite-star-toggle-button ${className}`}
       onClick={onClickHandler}
       {...rest}>
       {selected ? (

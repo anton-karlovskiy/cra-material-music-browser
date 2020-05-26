@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import Header from 'components/Header';
 import AnimatedAlbumGridSet from 'containers/AnimatedAlbumGridSet';

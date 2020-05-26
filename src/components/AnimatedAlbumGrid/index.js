@@ -57,11 +57,9 @@ const staticAlbumTiles = [
 ];
 
 const AnimatedAlbumGrid = ({
-  // ray test touch <
-  // checkFavorite,
-  // addToFavorites,
-  // removeFromFavorites,
-  // ray test touch >
+  checkFavorite,
+  addToFavorites,
+  removeFromFavorites,
   albumTiles,
   openAlbum,
   className
@@ -83,9 +81,13 @@ const AnimatedAlbumGrid = ({
             artistName: albumTile.artistName
           })}
           color={albumColor}
-          artworkUrl={albumTile.artworkUrl}
+          checkFavorite={checkFavorite}
+          addToFavorites={addToFavorites}
+          removeFromFavorites={removeFromFavorites}
+          id={albumTile.id}
           albumName={albumTile.albumName}
-          artistName={albumTile.artistName} />
+          artistName={albumTile.artistName}
+          artworkUrl={albumTile.artworkUrl} />
       );
     })}
   </div>

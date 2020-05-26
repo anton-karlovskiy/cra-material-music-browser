@@ -95,3 +95,10 @@
     position: relative;
   }
 }
+
+.album-tile .favorite-star {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  pointer-events: auto;
+}

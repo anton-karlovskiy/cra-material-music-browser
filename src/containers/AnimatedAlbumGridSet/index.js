@@ -141,11 +141,9 @@ const AnimatedAlbumGridSet = ({
             className='neon-animated-pages'
             key={index}
             openAlbum={openAlbumHandler}
-            // ray test touch <
             checkFavorite={checkFavorite}
             addToFavorites={addToFavorites}
             removeFromFavorites={removeFromFavorites}
-            // ray test touch >
             albumTiles={albumTiles} />
         ))}
       </div>
