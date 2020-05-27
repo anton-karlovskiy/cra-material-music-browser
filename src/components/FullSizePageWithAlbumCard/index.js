@@ -30,9 +30,11 @@ const FullSizePageWithAlbumCard = ({
     <div className='full-size-page-with-album-card'>
       <BackButton onClick={closeAlbum} />
       <ColorBackground
+        onClick={closeAlbum}
         ref={colorBackgroundRef}
         color={color} />
       <ImageBackground
+        onClick={closeAlbum}
         ref={imageBackgroundRef}
         url={artworkUrl} />
       <AlbumCard
