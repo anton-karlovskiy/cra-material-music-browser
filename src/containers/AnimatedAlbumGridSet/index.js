@@ -41,8 +41,10 @@ const AnimatedAlbumGridSet = ({
 
   useEffect(() => {
     if (openedAlbum.id) {
-      setOpenedAlbum(DEFAULT_OPENED_ALBUM);
+      cachedScrollY = 0;
+      closeAlbumHandler();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [favoritesOpen]);
 
   useEffect(() => {
