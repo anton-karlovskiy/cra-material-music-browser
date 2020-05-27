@@ -20,20 +20,46 @@ if ('function' === typeof importScripts) {
       )
     );
 
-    // ray test touch <
-    // workbox.routing.registerRoute(
-    //   /\.(?:png|gif|jpg|jpeg)$/,
-    //   workbox.strategies.cacheFirst({
-    //     cacheName: 'images',
-    //     plugins: [
-    //       new workbox.expiration.Plugin({
-    //         maxEntries: 60,
-    //         maxAgeSeconds: 30 * 24 * 60 * 60 // 30 Days
-    //       })
-    //     ]
-    //   })
-    // );
-    // ray test touch >
+    workbox.precaching.cleanupOutdatedCaches();
+
+    const CACHE_VERSION = 1;
+
+    // Shorthand identifier mapped to specific versioned cache.
+    const CACHES_NAMES = {
+      IMAGES: `images-${CACHE_VERSION}`,
+      JSON: `json-${CACHE_VERSION}`
+    };
+
+    const expirationPlugin = new workbox.expiration.ExpirationPlugin({
+      maxEntries: 50,
+      maxAgeSeconds: 24 * 60 * 60
+    });
+
+    // See https://developers.google.com/web/tools/workbox/guides/handle-third-party-requests#force_caching_of_opaque_responses
+    const cacheOpaqueResponsesPlugin = new workbox.cacheableResponse.CacheableResponsePlugin({
+      statuses: [0, 200]
+    });
+
+    const imagesStrategy = new workbox.strategies.CacheFirst({
+      cacheName: CACHES_NAMES.IMAGES,
+      plugins: [expirationPlugin, cacheOpaqueResponsesPlugin]
+    });
+
+    const jsonStrategy = new workbox.strategies.StaleWhileRevalidate({
+      cacheName: CACHES_NAMES.JSON,
+      plugins: [expirationPlugin]
+    });
+
+    workbox.routing.registerRoute(
+      /.+explicit.json$/,
+      jsonStrategy
+    );
+
+    workbox.routing.registerRoute(
+      // See https://developers.google.com/web/tools/workbox/guides/route-requests#matching_a_route_with_a_regular_expression
+      /.+\.(?:png|gif|jpg|jpeg)$/,
+      imagesStrategy
+    );
   } else {
     console.log('Workbox could not be loaded. No Offline support');
   }

@@ -7,14 +7,9 @@ const buildSW = () => {
     swSrc: 'src/sw-template.js', // this is your sw template file
     swDest: 'build/sw.js', // this will be created in the build step
     globDirectory: 'build',
-    // ray test touch <
-    // globPatterns: [
-    //   '**\/*.{js,css,html,png}'
-    // ]
     globPatterns: [
-      '**\/!(service-worker|precache-manifest.*).{js,css,html,png}'
+      '**\/!(service-worker|precache-manifest.*).{js,css,html,png,svg,ico}'
     ]
-    // ray test touch >
   }).then(({ count, size, warnings }) => {
     // Optionally, log any warnings and details.
     warnings.forEach(console.warn);
