@@ -28,15 +28,22 @@ const DEFAULT_OPENED_ALBUM = {
 let cachedScrollY = 0;
 
 const AnimatedAlbumGridSet = ({
-  albumTiles,
+  favoritesOpen,
   checkFavorite,
   addToFavorites,
-  removeFromFavorites
+  removeFromFavorites,
+  albumTiles
 }) => {
   const [openedAlbum, setOpenedAlbum] = useState(DEFAULT_OPENED_ALBUM);
   const colorBackgroundRef = useRef(null);
   const imageBackgroundRef = useRef(null);
   const albumCardRef = useRef(null);
+
+  useEffect(() => {
+    if (openedAlbum.id) {
+      setOpenedAlbum(DEFAULT_OPENED_ALBUM);
+    }
+  }, [favoritesOpen]);
 
   useEffect(() => {
     if (openedAlbum.event) {

@@ -137,6 +137,7 @@ const App = () => {
         {favoritesOpen && <ErrorAnnotation error={error} />}
         {targetAlbumTiles.length > 0 && (
           <AnimatedAlbumGridSet
+            favoritesOpen={favoritesOpen}
             checkFavorite={checkFavoriteHandler}
             addToFavorites={addToFavoritesHandler}
             removeFromFavorites={removeFromFavoritesHandler}
