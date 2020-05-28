@@ -27,12 +27,12 @@ if ('function' === typeof importScripts) {
     // Shorthand identifier mapped to specific versioned cache.
     const CACHES_NAMES = {
       IMAGES: `images-${CACHE_VERSION}`,
-      JSON: `json-${CACHE_VERSION}`
+      APPLE_RSS_FEED: `apple-rss-feed-${CACHE_VERSION}`
     };
 
     const expirationPlugin = new workbox.expiration.ExpirationPlugin({
       maxEntries: 50,
-      maxAgeSeconds: 24 * 60 * 60
+      maxAgeSeconds: 60 * 60 // 1 hour
     });
 
     // See https://developers.google.com/web/tools/workbox/guides/handle-third-party-requests#force_caching_of_opaque_responses
@@ -45,19 +45,19 @@ if ('function' === typeof importScripts) {
       plugins: [expirationPlugin, cacheOpaqueResponsesPlugin]
     });
 
-    const jsonStrategy = new workbox.strategies.StaleWhileRevalidate({
-      cacheName: CACHES_NAMES.JSON,
+    const appleRssFeedStrategy = new workbox.strategies.StaleWhileRevalidate({
+      cacheName: CACHES_NAMES.APPLE_RSS_FEED,
       plugins: [expirationPlugin]
     });
 
     workbox.routing.registerRoute(
-      /.+explicit.json$/,
-      jsonStrategy
+      /.*(?:rss.itunes.apple)\.com.*$/,
+      appleRssFeedStrategy
     );
 
     workbox.routing.registerRoute(
       // See https://developers.google.com/web/tools/workbox/guides/route-requests#matching_a_route_with_a_regular_expression
-      /.+\.(?:png|gif|jpg|jpeg)$/,
+      /.+\.(?:png|gif|jpg|jpeg|svg)$/,
       imagesStrategy
     );
   } else {
